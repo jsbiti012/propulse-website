@@ -4,7 +4,15 @@ import { motion, useMotionValue, useTransform, useSpring, animate } from "framer
 import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { hero } from "@/content.config";
+import homeData from "@/content/pages/home.json";
+const hero = homeData.hero;
+
+// Trust avatars kept in code (design elements)
+const trustAvatars = [
+  { initials: "AS", bg: "#4361EE" },
+  { initials: "MK", bg: "#7B5CF5" },
+  { initials: "FZ", bg: "#059669" },
+];
 
 function WordLine({
   words,
@@ -294,7 +302,11 @@ export default function HeroSection() {
               className="text-5xl md:text-6xl xl:text-[4.5rem] font-extrabold tracking-tight leading-[1.05] mb-6"
               style={{ color: "#ffffff" }}
             >
-              {hero.headlineLines.map(({ words, gradient }, i) => (
+              {[
+                { words: hero.headlineLine1.split(" "), gradient: false },
+                { words: hero.headlineLine2.split(" "), gradient: true },
+                { words: hero.headlineLine3.split(" "), gradient: false },
+              ].map(({ words, gradient }, i) => (
                 <span key={i} className="block">
                   <WordLine
                     words={words}
@@ -328,7 +340,7 @@ export default function HeroSection() {
               transition={{ duration: 0.55, delay: 1.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <Link
-                href={hero.primaryCta.href}
+                href="/contact"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-bold rounded-2xl transition-all hover:scale-105 hover:shadow-xl w-full sm:w-auto"
                 style={{
                   background: "var(--accent)",
@@ -336,17 +348,17 @@ export default function HeroSection() {
                   boxShadow: "0 8px 32px rgba(67,97,238,0.45)",
                 }}
               >
-                {hero.primaryCta.label} <ArrowRight size={17} />
+                {hero.primaryCtaLabel} <ArrowRight size={17} />
               </Link>
               <Link
-                href={hero.secondaryCta.href}
+                href="/services"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-bold rounded-2xl border transition-all hover:bg-white/5 w-full sm:w-auto"
                 style={{
                   color: "rgba(255,255,255,0.7)",
                   borderColor: "rgba(255,255,255,0.14)",
                 }}
               >
-                {hero.secondaryCta.label}
+                {hero.secondaryCtaLabel}
               </Link>
             </motion.div>
 
@@ -362,7 +374,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 1.3 }}
             >
               <div className="flex -space-x-2.5">
-                {hero.trustAvatars.map(({ initials, bg }, i) => (
+                {trustAvatars.map(({ initials, bg }, i) => (
                   <div
                     key={i}
                     className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"

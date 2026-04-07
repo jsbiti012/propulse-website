@@ -64,7 +64,7 @@ export const site = {
 export const socialLinks: { label: string; href: string; icon: LucideIcon }[] = [
   { label: "LinkedIn",  href: "#", icon: AtSign },
   { label: "Instagram", href: "#", icon: Send   },
-  { label: "Web",       href: "#", icon: Globe  },
+  { label: "Web",       href: "https://propulse.ma", icon: Globe  },
 ];
 
 /** Convenience re-exports so footer can stay icon-import-free */

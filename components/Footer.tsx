@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import Logo from "./Logo";
-import { site, navLinks, socialLinks, Mail, MapPin } from "@/content.config";
+import { navLinks, socialLinks, Mail, MapPin } from "@/content.config";
+import siteData from "@/content/pages/site.json";
 
 export default function Footer() {
   return (
@@ -15,10 +16,10 @@ export default function Footer() {
           <div className="max-w-xs">
             <div className="flex items-center gap-0 mb-4">
               <Logo size={48} className="-mr-2" />
-              <span className="text-lg font-extrabold tracking-tight">{site.name}</span>
+              <span className="text-lg font-extrabold tracking-tight">{siteData.name}</span>
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
-              {site.tagline}
+              {siteData.tagline}
             </p>
             {/* Social icons */}
             <div className="flex items-center gap-3">
@@ -81,19 +82,19 @@ export default function Footer() {
                 Contact
               </span>
               <a
-                href={`mailto:${site.email}`}
+                href={`mailto:${siteData.email}`}
                 className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-white"
                 style={{ color: "rgba(255,255,255,0.55)" }}
               >
                 <Mail size={13} style={{ color: "rgba(255,255,255,0.35)" }} />
-                {site.email}
+                {siteData.email}
               </a>
               <span
                 className="flex items-center gap-2 text-sm font-medium"
                 style={{ color: "rgba(255,255,255,0.55)" }}
               >
                 <MapPin size={13} style={{ color: "rgba(255,255,255,0.35)" }} />
-                {site.location}
+                {siteData.location}
               </span>
             </div>
 
@@ -133,10 +134,10 @@ export default function Footer() {
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
           <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
-            © {new Date().getFullYear()} {site.name}. Tous droits réservés.
+            © {new Date().getFullYear()} {siteData.name}. Tous droits réservés.
           </p>
           <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
-            {site.footerMadeWith}
+            {siteData.footerMadeWith}
           </p>
         </div>
       </div>

@@ -1,15 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Phone, Presentation, Code2, Globe } from "lucide-react";
 import { FadeUp, StaggerGrid, StaggerItem, ScaleOnHover } from "@/components/Animate";
-import { packs, servicesPage } from "@/content.config";
+import servicesData from "@/content/pages/services.json";
+import homeData from "@/content/pages/home.json";
+
+const PROCESS_ICONS = [Phone, Presentation, Code2, Globe];
 
 export const metadata = {
-  title: servicesPage.metadata.title,
-  description: servicesPage.metadata.description,
+  title: servicesData.meta.title,
+  description: servicesData.meta.description,
 };
 
 export default function ServicesPage() {
-  const { hero, process, cta, pricingNote } = servicesPage;
+  const { hero, process, cta, pricingNote } = servicesData;
+  const { packs } = homeData;
 
   return (
     <>
@@ -221,7 +225,9 @@ export default function ServicesPage() {
           </FadeUp>
 
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {process.steps.map(({ step, icon: Icon, title, desc }) => (
+            {process.steps.map(({ step, title, desc }, idx) => {
+              const Icon = PROCESS_ICONS[idx];
+              return (
               <StaggerItem key={step}>
                 <div
                   className="rounded-2xl p-7 h-full flex flex-col gap-4"
@@ -249,7 +255,8 @@ export default function ServicesPage() {
                   </p>
                 </div>
               </StaggerItem>
-            ))}
+              );
+            })}
           </StaggerGrid>
         </div>
       </section>

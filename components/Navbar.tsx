@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
-import { site, navLinks, navCta } from "@/content.config";
+import { navLinks, navCta } from "@/content.config";
+import siteData from "@/content/pages/site.json";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -44,7 +45,7 @@ export default function Navbar() {
             className="text-lg font-extrabold tracking-tight"
             style={{ color: "#ffffff" }}
           >
-            {site.name}
+            {siteData.name}
           </span>
         </Link>
 

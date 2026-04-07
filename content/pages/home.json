@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "badge": "Agence Web · Maroc",
+    "headlineLine1": "Votre entreprise",
+    "headlineLine2": "mérite d'être",
+    "headlineLine3": "trouvée en ligne.",
+    "subCopyMain": "Propulse crée des sites web professionnels pour les PME marocaines.",
+    "subCopyHighlight": "Rapide, abordable, et sans jargon technique.",
+    "primaryCtaLabel": "Démarrer mon projet",
+    "secondaryCtaLabel": "Voir nos formules",
+    "trustText": "Des PME marocaines nous font confiance",
+    "browserMockupUrl": "mon-salon-rabat.ma",
+    "scrollLabel": "Défiler"
+  },
+  "stats": [
+    { "value": "48h", "label": "Délai de réponse moyen" },
+    { "value": "3", "label": "Formules adaptées à chaque budget" },
+    { "value": "100%", "label": "Conçu pour les PME marocaines" }
+  ],
+  "homeSteps": [
+    {
+      "num": "01",
+      "title": "On se parle",
+      "desc": "Un appel de 20 min pour comprendre votre activité, vos clients, et vos objectifs."
+    },
+    {
+      "num": "02",
+      "title": "On construit",
+      "desc": "Votre site est prêt en 5 à 7 jours. Vous validez, on ajuste selon vos retours."
+    },
+    {
+      "num": "03",
+      "title": "Vous êtes en ligne",
+      "desc": "Vous recevez les clés de votre site. On s'occupe du reste."
+    }
+  ],
+  "whyUs": [
+    {
+      "title": "Livraison rapide",
+      "desc": "Votre site est prêt en quelques jours, pas en plusieurs mois."
+    },
+    {
+      "title": "Sans prise de tête",
+      "desc": "On s'occupe de tout. Zéro compétence technique requise de votre côté."
+    },
+    {
+      "title": "Fait pour votre secteur",
+      "desc": "Chaque site est conçu pour votre type d'activité et vos clients locaux."
+    },
+    {
+      "title": "Prix transparent",
+      "desc": "Une offre claire, sans mauvaises surprises. Vous savez exactement ce qui est inclus."
+    }
+  ],
+  "packs": [
+    {
+      "name": "Site Web Essentiel",
+      "tagline": "Présence digitale professionnelle",
+      "desc": "Idéal pour démarrer avec un site propre, professionnel, et opérationnel rapidement.",
+      "price": "5 900",
+      "monthly": "590",
+      "monthlyNote": "maintenance + hébergement sécurisé",
+      "features": [
+        "Site web professionnel",
+        "Design moderne et responsive",
+        "Hébergement sécurisé",
+        "Maintenance technique",
+        "Support client"
+      ],
+      "featured": false,
+      "accent": "#4361EE"
+    },
+    {
+      "name": "Site + Agent WhatsApp",
+      "tagline": "Site web + automatisation WhatsApp",
+      "desc": "Pour les entreprises qui veulent convertir leurs visiteurs en clients automatiquement.",
+      "price": "7 900",
+      "monthly": "990",
+      "monthlyNote": "maintenance + automatisation WhatsApp",
+      "features": [
+        "Tout du plan Site Web",
+        "Assistant WhatsApp intelligent",
+        "Réponses automatiques clients",
+        "Capture de leads",
+        "Prise de rendez-vous"
+      ],
+      "featured": true,
+      "accent": "#7B5CF5"
+    },
+    {
+      "name": "Automatisation Business",
+      "tagline": "Automatisation avancée",
+      "desc": "Pour les PME qui veulent automatiser leur croissance et fidéliser leurs clients.",
+      "price": "9 900",
+      "monthly": "2 490",
+      "monthlyNote": "maintenance + automatisations avancées",
+      "features": [
+        "Tout du plan WhatsApp IA",
+        "Automatisations avancées",
+        "Relances clients automatiques",
+        "Intégrations business",
+        "Support dédié"
+      ],
+      "featured": false,
+      "accent": "#0EA5E9"
+    }
+  ],
+  "homeCta": {
+    "headline": "Prêt à mettre votre entreprise en ligne ?",
+    "subCopy": "Parlez-nous de votre activité. On vous rappelle sous 24h avec une proposition adaptée.",
+    "ctaLabel": "Contactez-nous maintenant"
+  }
+}

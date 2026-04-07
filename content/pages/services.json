@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "label": "Nos formules",
+    "headline": "Une formule pour",
+    "headlineGradient": "chaque besoin.",
+    "subCopy": "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité — on s'occupe du reste."
+  },
+  "pricingNote": "Tous les prix sont en MAD, TVA non incluse. Un devis personnalisé est disponible sur demande.",
+  "process": {
+    "label": "Notre processus",
+    "headline": "Simple",
+    "headlineGradient": "de A à Z.",
+    "subCopy": "De la prise de contact à la mise en ligne, on vous accompagne à chaque étape.",
+    "steps": [
+      {
+        "step": "01",
+        "title": "On se parle",
+        "desc": "Un appel de 20 min pour comprendre votre activité, vos clients, et vos objectifs."
+      },
+      {
+        "step": "02",
+        "title": "On conçoit",
+        "desc": "On crée un design sur-mesure adapté à votre secteur et votre image de marque."
+      },
+      {
+        "step": "03",
+        "title": "Vous validez",
+        "desc": "On vous présente le résultat. On ajuste selon vos retours jusqu'à ce que ce soit parfait."
+      },
+      {
+        "step": "04",
+        "title": "Vous êtes en ligne",
+        "desc": "Votre site est mis en ligne. Hébergement, domaine, configuration — on s'en charge."
+      }
+    ]
+  },
+  "cta": {
+    "headline": "Vous avez des questions sur nos formules ?",
+    "subCopy": "Parlez-nous de votre projet. On vous conseille gratuitement et sans engagement.",
+    "ctaLabel": "Contactez-nous"
+  },
+  "meta": {
+    "title": "Nos formules — Propulse",
+    "description": "Découvrez nos 3 formules pour les PME marocaines : Site Web Essentiel, Site + Agent WhatsApp, Automatisation Business."
+  }
+}

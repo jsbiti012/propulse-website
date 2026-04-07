@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Clock, Layers, Star, Phone, Code2, Globe, Zap, Shield, Users, CheckCircle } from "lucide-react";
 import {
   FadeUp,
   StaggerGrid,
@@ -8,7 +8,14 @@ import {
   CounterUp,
 } from "@/components/Animate";
 import HeroSection from "@/components/HeroSection";
-import { stats, homeSteps, whyUs, packs, homeCta } from "@/content.config";
+import homeData from "@/content/pages/home.json";
+
+const { stats: statsData, homeSteps: stepsData, whyUs: whyUsData, packs, homeCta } = homeData;
+
+// Icons stay in code — zipped with JSON data at render time
+const STAT_ICONS = [Clock, Layers, Star];
+const STEP_ICONS = [Phone, Code2, Globe];
+const WHY_US_ICONS = [Zap, Shield, Users, CheckCircle];
 
 export default function Home() {
   return (
@@ -20,7 +27,9 @@ export default function Home() {
       <section style={{ background: "var(--dark)" }}>
         <div className="mx-auto max-w-6xl px-6 py-10 md:py-16">
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {stats.map(({ value, label, icon: Icon }) => (
+            {statsData.map(({ value, label }, idx) => {
+              const Icon = STAT_ICONS[idx];
+              return (
               <StaggerItem key={value}>
                 <div
                   className="flex flex-col items-center text-center gap-4 rounded-2xl px-5 py-7 sm:px-8 sm:py-9 backdrop-blur-md"
@@ -49,7 +58,8 @@ export default function Home() {
                   </p>
                 </div>
               </StaggerItem>
-            ))}
+              );
+            })}
           </StaggerGrid>
         </div>
 
@@ -93,7 +103,9 @@ export default function Home() {
           />
 
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
-            {homeSteps.map(({ num, icon: Icon, title, desc }) => (
+            {stepsData.map(({ num, title, desc }, idx) => {
+              const Icon = STEP_ICONS[idx];
+              return (
               <StaggerItem key={num}>
                 <div className="flex md:flex-col items-start md:items-center gap-5 md:gap-5 md:text-center">
                   {/* Circle with pulse ring */}
@@ -142,7 +154,8 @@ export default function Home() {
                   </div>
                 </div>
               </StaggerItem>
-            ))}
+              );
+            })}
           </StaggerGrid>
         </div>
       </section>
@@ -167,7 +180,9 @@ export default function Home() {
           </FadeUp>
 
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {whyUs.map(({ icon: Icon, title, desc }) => (
+            {whyUsData.map(({ title, desc }, idx) => {
+              const Icon = WHY_US_ICONS[idx];
+              return (
               <StaggerItem key={title}>
                 <div
                   className="rounded-2xl p-7 flex flex-col gap-4 h-full cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
@@ -198,7 +213,8 @@ export default function Home() {
                   </p>
                 </div>
               </StaggerItem>
-            ))}
+              );
+            })}
           </StaggerGrid>
         </div>
       </section>
@@ -352,7 +368,7 @@ export default function Home() {
               {homeCta.subCopy}
             </p>
             <Link
-              href={homeCta.cta.href}
+              href="/contact"
               className="group inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold rounded-2xl transition-all hover:scale-105"
               style={{
                 background: "#fff",
@@ -360,7 +376,7 @@ export default function Home() {
                 boxShadow: "0 8px 24px rgba(255,255,255,0.12)",
               }}
             >
-              {homeCta.cta.label}
+              {homeCta.ctaLabel}
               <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </FadeUp>

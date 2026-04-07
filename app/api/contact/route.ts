@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   }
 
   const { error } = await resend.emails.send({
-    from: "Propulse Contact <onboarding@resend.dev>",
+    from: "Propulse <noreply@propulse.ma>",
     to: "contact@propulse.ma",
     replyTo: email,
     subject: `Nouveau message de ${name}${business ? ` — ${business}` : ""}`,

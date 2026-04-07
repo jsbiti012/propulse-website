@@ -3,7 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { siteMetadata } from "@/content.config";
+import siteData from "@/content/pages/site.json";
 
 const font = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -13,12 +13,21 @@ const font = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: siteMetadata.title,
-  description: siteMetadata.description,
+  metadataBase: new URL("https://propulse.ma"),
+  title: siteData.metaTitle,
+  description: siteData.metaDescription,
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
-    title: siteMetadata.ogTitle,
-    description: siteMetadata.ogDescription,
-    locale: siteMetadata.locale,
+    title: siteData.metaTitle,
+    description: siteData.metaDescription,
+    url: "https://propulse.ma",
+    siteName: siteData.name,
+    locale: "fr_MA",
     type: "website",
   },
 };
