@@ -27,8 +27,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="sticky top-0 z-50 w-full transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(8,10,23,0.97)" : "rgba(8,10,23,0.6)",
-        backdropFilter: "blur(20px)",
+        background: "#080A17",
         borderBottom: scrolled
           ? "1px solid rgba(255,255,255,0.08)"
           : "1px solid transparent",
