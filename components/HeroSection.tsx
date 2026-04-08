@@ -356,30 +356,6 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Stat pill */}
-            <motion.div
-              className="inline-flex flex-col items-center gap-1 mt-8 px-6 py-3 rounded-2xl"
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.09)",
-              }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1.3 }}
-            >
-              <p
-                className="text-2xl font-extrabold tracking-tight"
-                style={{ color: "#ffffff" }}
-              >
-                5 à 7 jours
-              </p>
-              <p
-                className="text-xs font-semibold"
-                style={{ color: "rgba(255,255,255,0.45)" }}
-              >
-                Délai de livraison moyen
-              </p>
-            </motion.div>
           </div>
 
           {/* ── Right: browser mockup ── */}
