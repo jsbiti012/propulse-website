@@ -7,12 +7,6 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import homeData from "@/content/pages/home.json";
 const hero = homeData.hero;
 
-// Trust avatars kept in code (design elements)
-const trustAvatars = [
-  { initials: "AS", bg: "#4361EE" },
-  { initials: "MK", bg: "#7B5CF5" },
-  { initials: "FZ", bg: "#059669" },
-];
 
 function WordLine({
   words,
@@ -362,9 +356,9 @@ export default function HeroSection() {
               </Link>
             </motion.div>
 
-            {/* Trust pill */}
+            {/* Stat pill */}
             <motion.div
-              className="inline-flex flex-wrap items-center gap-3 mt-8 px-5 py-3 rounded-2xl max-w-full"
+              className="inline-flex flex-col items-center gap-1 mt-8 px-6 py-3 rounded-2xl"
               style={{
                 background: "rgba(255,255,255,0.05)",
                 border: "1px solid rgba(255,255,255,0.09)",
@@ -373,32 +367,18 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 1.3 }}
             >
-              <div className="flex -space-x-2.5">
-                {trustAvatars.map(({ initials, bg }, i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
-                    style={{ background: bg, border: "2px solid #080A17" }}
-                  >
-                    {initials}
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p
-                  className="text-xs font-semibold"
-                  style={{ color: "rgba(255,255,255,0.8)" }}
-                >
-                  {hero.trustText}
-                </p>
-                <div className="flex gap-0.5 mt-0.5">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <svg key={i} width="10" height="10" viewBox="0 0 12 12" fill="#F59E0B">
-                      <path d="M6 1l1.5 3 3.2.5-2.3 2.2.5 3.2L6 8.5l-2.9 1.4.5-3.2L1.3 4.5 4.5 4z" />
-                    </svg>
-                  ))}
-                </div>
-              </div>
+              <p
+                className="text-2xl font-extrabold tracking-tight"
+                style={{ color: "#ffffff" }}
+              >
+                5 à 7 jours
+              </p>
+              <p
+                className="text-xs font-semibold"
+                style={{ color: "rgba(255,255,255,0.45)" }}
+              >
+                Délai de livraison moyen
+              </p>
             </motion.div>
           </div>
 
