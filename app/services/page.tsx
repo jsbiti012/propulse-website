@@ -135,24 +135,28 @@ export default function ServicesPage() {
                             /mise en place
                           </span>
                         </p>
-                        <p
-                          className="mt-3 text-2xl font-bold tracking-tight"
-                          style={{ color: "rgba(255,255,255,0.75)" }}
-                        >
-                          {pack.monthly}
-                          <span
-                            className="text-base font-semibold ml-1"
-                            style={{ color: "rgba(255,255,255,0.4)" }}
-                          >
-                            DH /mois
-                          </span>
-                        </p>
-                        <p
-                          className="mt-1 text-xs font-medium"
-                          style={{ color: "rgba(255,255,255,0.3)" }}
-                        >
-                          {pack.monthlyNote}
-                        </p>
+                        {pack.monthly && (
+                          <>
+                            <p
+                              className="mt-3 text-2xl font-bold tracking-tight"
+                              style={{ color: "rgba(255,255,255,0.75)" }}
+                            >
+                              {pack.monthly}
+                              <span
+                                className="text-base font-semibold ml-1"
+                                style={{ color: "rgba(255,255,255,0.4)" }}
+                              >
+                                DH /mois
+                              </span>
+                            </p>
+                            <p
+                              className="mt-1 text-xs font-medium"
+                              style={{ color: "rgba(255,255,255,0.3)" }}
+                            >
+                              {pack.monthlyNote}
+                            </p>
+                          </>
+                        )}
                       </div>
 
                       {/* Features */}

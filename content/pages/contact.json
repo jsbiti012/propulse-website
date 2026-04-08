@@ -7,9 +7,9 @@
   },
   "formPackOptions": [
     { "value": "", "label": "Choisir une formule…" },
+    { "value": "visibilite", "label": "Pack Visibilité Locale — 1 200 DH" },
     { "value": "essentiel", "label": "Site Web Essentiel — 5 900 DH" },
     { "value": "whatsapp", "label": "Site + Agent WhatsApp — 7 900 DH" },
-    { "value": "business", "label": "Automatisation Business — 9 900 DH" },
     { "value": "autre", "label": "Autre / Je ne sais pas encore" }
   ],
   "nextSteps": [
