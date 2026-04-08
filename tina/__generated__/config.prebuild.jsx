@@ -2,17 +2,11 @@
 import { defineConfig } from "tinacms";
 var config_default = defineConfig({
   branch: process.env.GITHUB_BRANCH || "main",
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || null,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "0b1bca79-618c-4ff5-8d23-0ddef4ef080d",
   token: process.env.TINA_TOKEN || null,
   build: {
     outputFolder: "admin",
     publicFolder: "public"
-  },
-  media: {
-    tina: {
-      mediaRoot: "",
-      publicFolder: "public"
-    }
   },
   schema: {
     collections: [

@@ -1,0 +1,126 @@
+fragment BlogParts on Blog {
+  __typename
+  title
+  description
+  date
+  category
+  readTime
+  body
+}
+
+fragment SiteParts on Site {
+  __typename
+  name
+  tagline
+  email
+  location
+  locationNote
+  footerMadeWith
+  metaTitle
+  metaDescription
+}
+
+fragment HomeParts on Home {
+  __typename
+  hero {
+    __typename
+    badge
+    headlineLine1
+    headlineLine2
+    headlineLine3
+    subCopyMain
+    subCopyHighlight
+    primaryCtaLabel
+    secondaryCtaLabel
+    trustText
+    browserMockupUrl
+    scrollLabel
+  }
+  stats {
+    __typename
+    value
+    label
+  }
+  homeSteps {
+    __typename
+    num
+    title
+    desc
+  }
+  whyUs {
+    __typename
+    title
+    desc
+  }
+  packs {
+    __typename
+    name
+    tagline
+    desc
+    price
+    monthly
+    monthlyNote
+    features
+    featured
+    accent
+  }
+  homeCta {
+    __typename
+    headline
+    subCopy
+    ctaLabel
+  }
+}
+
+fragment ServicesParts on Services {
+  __typename
+  hero {
+    __typename
+    label
+    headline
+    headlineGradient
+    subCopy
+  }
+  pricingNote
+  process {
+    __typename
+    label
+    headline
+    headlineGradient
+    subCopy
+    steps {
+      __typename
+      step
+      title
+      desc
+    }
+  }
+  cta {
+    __typename
+    headline
+    subCopy
+    ctaLabel
+  }
+  meta {
+    __typename
+    title
+    description
+  }
+}
+
+fragment ContactParts on Contact {
+  __typename
+  hero {
+    __typename
+    label
+    headline
+    headlineGradient
+    subCopy
+  }
+  formPackOptions {
+    __typename
+    value
+    label
+  }
+  nextSteps
+}
