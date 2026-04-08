@@ -6,16 +6,31 @@
     "subCopy": "Remplissez le formulaire ci-dessous et on vous recontacte sous 24h. Pas d'engagement, juste une conversation."
   },
   "formPackOptions": [
-    { "value": "", "label": "Choisir une formule…" },
-    { "value": "visibilite", "label": "Pack Visibilité Locale — 1 200 DH" },
-    { "value": "essentiel", "label": "Site Web Essentiel — 5 900 DH" },
-    { "value": "whatsapp", "label": "Site + Agent WhatsApp — 7 900 DH" },
-    { "value": "autre", "label": "Autre / Je ne sais pas encore" }
+    {
+      "value": "",
+      "label": "Choisir une formule…"
+    },
+    {
+      "value": "visibilite",
+      "label": "Pack Visibilité Locale — 1 200 DH"
+    },
+    {
+      "value": "essentiel",
+      "label": "Site Web Essentiel — 5 900 DH"
+    },
+    {
+      "value": "whatsapp",
+      "label": "Site + Agent WhatsApp — 7 900 DH"
+    },
+    {
+      "value": "autre",
+      "label": "Autre / Je ne sais pas encore"
+    }
   ],
   "nextSteps": [
-    "On reçoit votre message.",
-    "On vous recontacte sous 24h.",
-    "On discute de votre projet gratuitement.",
-    "On vous propose une formule adaptée."
+    "On reçoit votre message",
+    "On vous recontacte sous 24h",
+    "On discute de votre projet gratuitement",
+    "On vous propose une formule adaptée"
   ]
 }
