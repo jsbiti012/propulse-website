@@ -65,63 +65,55 @@
     {
       "name": "VISIBILITÉ LOCALE",
       "tagline": "Pack Visibilité Locale",
-      "desc": "Pour être trouvé sur Google et joignable sur WhatsApp — sans site web.",
+      "desc": "Pour les entreprises qui veulent être trouvables sur Google et joignables sur WhatsApp.",
       "price": "1 200",
-      "pricePrefix": null,
       "monthly": null,
       "monthlyNote": null,
       "features": [
         "Fiche Google Business Profile complète",
         "Configuration WhatsApp Business",
         "Message de bienvenue + réponses rapides",
-        "Lien WhatsApp direct + QR code imprimable"
+        "Lien WhatsApp direct + QR code"
       ],
       "featured": false,
       "accent": "#0EA5E9",
-      "ctaLabel": "Démarrer ce projet",
-      "isPremium": false
+      "ctaLabel": "Démarrer ce projet"
     },
     {
       "name": "SITE WEB STANDARD",
       "tagline": "Site Standard",
-      "desc": "Le site qui fait votre crédibilité en ligne. Pour les commerces locaux qui veulent rassurer et convertir.",
+      "desc": "Pour les commerces locaux qui veulent un site propre, professionnel, et opérationnel.",
       "price": "5 900",
-      "pricePrefix": null,
       "monthly": "590",
       "monthlyNote": "maintenance + hébergement sécurisé",
       "features": [
-        "Site web professionnel responsive",
-        "Design moderne adapté à votre métier",
-        "Intégration WhatsApp + Google Maps",
-        "Hébergement et nom de domaine sécurisés",
-        "Maintenance technique et mises à jour",
-        "Support client réactif"
+        "Site web professionnel",
+        "Design moderne et responsive",
+        "Hébergement sécurisé",
+        "Maintenance technique",
+        "Support client"
       ],
       "featured": true,
       "accent": "#4361EE",
-      "ctaLabel": "Démarrer ce projet",
-      "isPremium": false
+      "ctaLabel": "Démarrer ce projet"
     },
     {
       "name": "SITE WEB SIGNATURE",
       "tagline": "Site Signature",
-      "desc": "Pour les commerces qui vendent une expérience — instituts de beauté, salons de coiffure, pâtisseries. Design éditorial sur-mesure, conçu à la main.",
+      "desc": "Pour les commerces qui veulent un design d'exception.",
       "price": "9 900",
-      "pricePrefix": "À partir de",
       "monthly": "790",
       "monthlyNote": "maintenance + hébergement sécurisé",
       "features": [
         "Direction artistique dédiée",
-        "Design éditorial sur-mesure (typographie, mise en page, motion)",
-        "Curation photographique et iconographique",
+        "Design éditorial sur mesure",
+        "Curation photographique",
         "Tout le plan Site Standard inclus",
-        "Révisions illimitées avant mise en ligne",
-        "Accompagnement créatif personnalisé"
+        "Révisions illimitées"
       ],
       "featured": false,
-      "accent": "#C8A44A",
-      "ctaLabel": "Demander un devis",
-      "isPremium": true
+      "accent": "#7B5CF5",
+      "ctaLabel": "Démarrer ce projet"
     }
   ],
   "homeCta": {

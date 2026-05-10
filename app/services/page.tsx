@@ -76,10 +76,9 @@ export default function ServicesPage() {
                   <div
                     className="rounded-2xl flex flex-col h-full relative overflow-hidden"
                     style={{
-                      background: pack.isPremium ? "rgba(200,164,74,0.04)" : "rgba(255,255,255,0.04)",
-                      border: pack.isPremium ? "1px solid rgba(200,164,74,0.20)" : "1px solid rgba(255,255,255,0.07)",
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(255,255,255,0.07)",
                       borderTop: `3px solid ${pack.accent}`,
-                      boxShadow: pack.isPremium ? "0 0 40px rgba(200,164,74,0.07)" : "none",
                     }}
                   >
                     {pack.featured && (
@@ -118,14 +117,6 @@ export default function ServicesPage() {
                         className="py-5 border-t border-b"
                         style={{ borderColor: "rgba(255,255,255,0.08)" }}
                       >
-                        {pack.pricePrefix && (
-                          <p
-                            className="text-xs font-semibold mb-1"
-                            style={{ color: "rgba(255,255,255,0.4)" }}
-                          >
-                            {pack.pricePrefix}
-                          </p>
-                        )}
                         <p
                           className="text-4xl font-black tracking-tight leading-none"
                           style={{ color: "#ffffff" }}
@@ -141,7 +132,7 @@ export default function ServicesPage() {
                             className="text-sm font-semibold ml-1"
                             style={{ color: "rgba(255,255,255,0.35)" }}
                           >
-                            / création
+                            /mise en place
                           </span>
                         </p>
                         {pack.monthly && (
@@ -190,11 +181,7 @@ export default function ServicesPage() {
                       <Link
                         href="/contact"
                         className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold rounded-xl transition-all hover:opacity-90 mt-2"
-                        style={
-                          pack.isPremium
-                            ? { background: "linear-gradient(135deg, #C8A44A 0%, #9B6E2E 100%)", color: "#fff" }
-                            : { background: pack.accent, color: "#fff" }
-                        }
+                        style={{ background: pack.accent, color: "#fff" }}
                       >
                         {pack.ctaLabel} <ArrowRight size={15} />
                       </Link>
@@ -204,103 +191,6 @@ export default function ServicesPage() {
               </StaggerItem>
             ))}
           </StaggerGrid>
-
-          {/* ── WhatsApp Add-on ── */}
-          <FadeUp className="mt-10">
-            <div
-              className="mx-auto max-w-3xl rounded-2xl p-7 flex flex-col sm:flex-row gap-6 items-start"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.07)",
-                borderLeft: "3px solid #25D366",
-              }}
-            >
-              <div className="flex-1">
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-2"
-                  style={{ color: "#25D366" }}
-                >
-                  OPTION COMPLÉMENTAIRE
-                </p>
-                <h3
-                  className="text-lg font-extrabold mb-1"
-                  style={{ color: "#ffffff" }}
-                >
-                  Automatisation WhatsApp
-                </h3>
-                <p
-                  className="text-sm leading-relaxed mb-4"
-                  style={{ color: "rgba(255,255,255,0.45)" }}
-                >
-                  Transformez vos visiteurs en clients automatiquement. S&apos;ajoute au Site Standard ou au Site Signature.
-                </p>
-                <ul className="flex flex-col gap-2">
-                  {[
-                    "Assistant WhatsApp intelligent",
-                    "Réponses automatiques aux questions fréquentes",
-                    "Capture et qualification de leads",
-                    "Prise de rendez-vous automatisée",
-                    "Notifications et relances clients",
-                  ].map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-start gap-2 text-sm"
-                      style={{ color: "rgba(255,255,255,0.7)" }}
-                    >
-                      <div
-                        className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                        style={{ background: "rgba(37,211,102,0.15)" }}
-                      >
-                        <Check size={9} style={{ color: "#25D366" }} />
-                      </div>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="flex flex-col gap-3 sm:items-end sm:min-w-[180px]">
-                <div>
-                  <p
-                    className="text-2xl font-black tracking-tight"
-                    style={{ color: "#ffffff" }}
-                  >
-                    + 2 000{" "}
-                    <span
-                      className="text-base font-bold"
-                      style={{ color: "rgba(255,255,255,0.5)" }}
-                    >
-                      DH
-                    </span>
-                  </p>
-                  <p
-                    className="text-xs font-medium mt-0.5"
-                    style={{ color: "rgba(255,255,255,0.35)" }}
-                  >
-                    / création
-                  </p>
-                  <p
-                    className="text-lg font-bold mt-2"
-                    style={{ color: "rgba(255,255,255,0.7)" }}
-                  >
-                    + 400{" "}
-                    <span
-                      className="text-sm font-semibold"
-                      style={{ color: "rgba(255,255,255,0.4)" }}
-                    >
-                      DH /mois
-                    </span>
-                  </p>
-                </div>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-4 py-2.5 text-sm font-bold rounded-xl transition-all hover:opacity-90"
-                  style={{ background: "#25D366", color: "#fff" }}
-                >
-                  Ajouter à mon projet <ArrowRight size={14} />
-                </Link>
-              </div>
-            </div>
-          </FadeUp>
 
           <FadeUp>
             <p
