@@ -3,7 +3,7 @@
     "label": "Nos formules",
     "headline": "Une formule pour",
     "headlineGradient": "chaque besoin.",
-    "subCopy": "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité — on s'occupe du reste."
+    "subCopy": "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité, on s'occupe du reste."
   },
   "pricingNote": "Tous les prix sont en MAD, TVA non incluse. Un devis personnalisé est disponible sur demande",
   "process": {
@@ -30,7 +30,7 @@
       {
         "step": "04",
         "title": "Vous êtes en ligne",
-        "desc": "Votre site est mis en ligne. Hébergement, domaine, configuration — on s'en charge."
+        "desc": "Votre site est mis en ligne. Hébergement, domaine, configuration : on s'en charge."
       }
     ]
   },
@@ -40,7 +40,7 @@
     "ctaLabel": "Contactez-nous"
   },
   "meta": {
-    "title": "Nos formules — Propulse",
-    "description": "Découvrez nos 3 formules pour les PME marocaines : Pack Visibilité Locale, Site Web Essentiel, Site + Agent WhatsApp."
+    "title": "Nos formules - Propulse",
+    "description": "Découvrez nos 3 formules pour les PME marocaines : Pack Visibilité Locale, Site Standard, Site Signature."
   }
 }

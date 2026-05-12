@@ -77,7 +77,7 @@ export default function ServicesPage() {
                     className="rounded-2xl flex flex-col h-full relative overflow-hidden"
                     style={{
                       background: "rgba(255,255,255,0.04)",
-                      border: `1px solid rgba(255,255,255,0.07)`,
+                      border: "1px solid rgba(255,255,255,0.07)",
                       borderTop: `3px solid ${pack.accent}`,
                     }}
                   >
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                         className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold rounded-xl transition-all hover:opacity-90 mt-2"
                         style={{ background: pack.accent, color: "#fff" }}
                       >
-                        Démarrer ce projet <ArrowRight size={15} />
+                        {pack.ctaLabel} <ArrowRight size={15} />
                       </Link>
                     </div>
                   </div>

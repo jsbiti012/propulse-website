@@ -181,7 +181,7 @@ export const packs: Pack[] = [
     tagline: "Présence digitale professionnelle",
     desc: "Idéal pour démarrer avec un site propre, professionnel, et opérationnel rapidement.",
     price: "5 900",
-    monthly: "590",
+    monthly: "250",
     monthlyNote: "maintenance + hébergement sécurisé",
     features: [
       "Site web professionnel",

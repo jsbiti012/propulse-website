@@ -76,14 +76,15 @@
         "Lien WhatsApp direct + QR code"
       ],
       "featured": false,
-      "accent": "#0EA5E9"
+      "accent": "#0EA5E9",
+      "ctaLabel": "Démarrer ce projet"
     },
     {
-      "name": "Site Web Essentiel",
-      "tagline": "Présence digitale professionnelle",
-      "desc": "Idéal pour démarrer avec un site propre, professionnel, et opérationnel rapidement.",
+      "name": "SITE WEB STANDARD",
+      "tagline": "Site Standard",
+      "desc": "Pour les commerces locaux qui veulent un site propre, professionnel, et opérationnel.",
       "price": "5 900",
-      "monthly": "590",
+      "monthly": "250",
       "monthlyNote": "maintenance + hébergement sécurisé",
       "features": [
         "Site web professionnel",
@@ -93,24 +94,26 @@
         "Support client"
       ],
       "featured": true,
-      "accent": "#4361EE"
+      "accent": "#4361EE",
+      "ctaLabel": "Démarrer ce projet"
     },
     {
-      "name": "Site + Agent WhatsApp",
-      "tagline": "Site web + automatisation WhatsApp",
-      "desc": "Pour les entreprises qui veulent convertir leurs visiteurs en clients automatiquement.",
-      "price": "7 900",
-      "monthly": "990",
-      "monthlyNote": "maintenance + automatisation WhatsApp",
+      "name": "SITE WEB SIGNATURE",
+      "tagline": "Site Signature",
+      "desc": "Pour les commerces qui veulent un design d'exception.",
+      "price": "9 900",
+      "monthly": "250",
+      "monthlyNote": "maintenance + hébergement sécurisé",
       "features": [
-        "Tout du plan Site Web",
-        "Assistant WhatsApp intelligent",
-        "Réponses automatiques clients",
-        "Capture de leads",
-        "Prise de rendez-vous"
+        "Direction artistique dédiée",
+        "Design éditorial sur mesure",
+        "Curation photographique",
+        "Tout le plan Site Standard inclus",
+        "Révisions illimitées"
       ],
       "featured": false,
-      "accent": "#7B5CF5"
+      "accent": "#7B5CF5",
+      "ctaLabel": "Démarrer ce projet"
     }
   ],
   "homeCta": {
