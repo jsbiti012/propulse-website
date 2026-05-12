@@ -84,7 +84,7 @@
       "tagline": "Site Standard",
       "desc": "Pour les commerces locaux qui veulent un site propre, professionnel, et opérationnel.",
       "price": "5 900",
-      "monthly": "240",
+      "monthly": "250",
       "monthlyNote": "maintenance + hébergement sécurisé",
       "features": [
         "Site web professionnel",
@@ -102,14 +102,14 @@
       "tagline": "Site Signature",
       "desc": "Pour les commerces qui veulent un design d'exception.",
       "price": "9 900",
-      "monthly": "240",
+      "monthly": "250",
       "monthlyNote": "maintenance + hébergement sécurisé",
       "features": [
         "Direction artistique dédiée",
         "Design éditorial sur mesure",
         "Curation photographique",
         "Tout le plan Site Standard inclus",
-        "Révisions illimitées"
+        "Révisions incluses pendant 90 jours"
       ],
       "featured": false,
       "accent": "#7B5CF5",
