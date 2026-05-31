@@ -47,9 +47,9 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.05 + path.id * 0.012}
-            initial={{ pathLength: 0.3, opacity: 0.5 }}
-            animate={{ pathLength: 1, opacity: [0.18, 0.45, 0.18], pathOffset: [0, 1, 0] }}
+            strokeOpacity={0.12 + path.id * 0.025}
+            initial={{ pathLength: 0.3, opacity: 0.6 }}
+            animate={{ pathLength: 1, opacity: [0.4, 0.75, 0.4], pathOffset: [0, 1, 0] }}
             transition={{
               duration: 20 + Math.random() * 10,
               repeat: Infinity,
@@ -71,7 +71,7 @@ export default function HeroSection() {
       style={{ background: "var(--bg)" }}
     >
       {/* Animated flowing paths backdrop */}
-      <div className="absolute inset-0 z-0 opacity-70">
+      <div className="absolute inset-0 z-0">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
       </div>
