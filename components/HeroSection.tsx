@@ -107,45 +107,45 @@ export default function HeroSection() {
           className="display mt-8 text-[2.8rem] sm:text-6xl lg:text-7xl xl:text-8xl"
           style={{ color: "var(--text)" }}
         >
+          {/* Line 1: "Votre [rotating word]" on one line */}
           <motion.span
             className="block"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.12, ease }}
           >
-            Votre
-          </motion.span>
-
-          {/* Rotating word — own centered line, clipped slide */}
-          <span
-            className="relative block w-full text-center overflow-hidden leading-[1.1]"
-            aria-label="restaurant, boutique, salon, café, commerce"
-          >
-            <span className="invisible" aria-hidden>
-              restaurant
+            Votre{" "}
+            {/* Rotating slot — width pinned to the longest word so the line never jitters */}
+            <span
+              className="relative inline-block overflow-hidden align-bottom text-left leading-[1.05]"
+              aria-label="restaurant, boutique, salon, café, commerce"
+            >
+              <span className="invisible" aria-hidden>
+                restaurant
+              </span>
+              {rotating.map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="absolute left-0 top-0 whitespace-nowrap"
+                  initial={{ opacity: 0, y: "100%" }}
+                  animate={
+                    wordIndex === i
+                      ? { y: "0%", opacity: 1 }
+                      : { y: wordIndex > i ? "-115%" : "115%", opacity: 0 }
+                  }
+                  transition={{ type: "spring", stiffness: 70, damping: 14 }}
+                >
+                  {word}
+                </motion.span>
+              ))}
             </span>
-            {rotating.map((word, i) => (
-              <motion.span
-                key={word}
-                className="absolute inset-x-0 text-center"
-                initial={{ opacity: 0, y: "100%" }}
-                animate={
-                  wordIndex === i
-                    ? { y: "0%", opacity: 1 }
-                    : { y: wordIndex > i ? "-120%" : "120%", opacity: 0 }
-                }
-                transition={{ type: "spring", stiffness: 70, damping: 14 }}
-              >
-                {word}
-              </motion.span>
-            ))}
-          </span>
+          </motion.span>
 
           <motion.span
             className="block"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.36, ease }}
+            transition={{ duration: 0.85, delay: 0.3, ease }}
           >
             mérite un vrai site web.
           </motion.span>
