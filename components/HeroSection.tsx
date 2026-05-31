@@ -66,7 +66,7 @@ function FloatingPaths({ position }: { position: number }) {
 export default function HeroSection() {
   // Rotating business types — sharp vertical slide-swap
   const rotating = useMemo(
-    () => ["restaurant", "boutique", "salon", "café", "commerce"],
+    () => ["entreprise", "restaurant", "boutique", "salon", "café", "commerce"],
     []
   );
   const [wordIndex, setWordIndex] = useState(0);
@@ -115,18 +115,16 @@ export default function HeroSection() {
             transition={{ duration: 0.85, delay: 0.12, ease }}
           >
             Votre{" "}
-            {/* Rotating slot — width pinned to the longest word so the line never jitters */}
+            {/* Rotating slot — inline-grid stacks every word in one cell, so the
+                slot auto-sizes to the widest word and the line never jitters or clips */}
             <span
-              className="relative inline-block overflow-hidden align-bottom text-left leading-[1.05]"
-              aria-label="restaurant, boutique, salon, café, commerce"
+              className="relative inline-grid overflow-hidden align-bottom text-left leading-[1.05]"
+              aria-label="entreprise, restaurant, boutique, salon, café, commerce"
             >
-              <span className="invisible" aria-hidden>
-                restaurant
-              </span>
               {rotating.map((word, i) => (
                 <motion.span
                   key={word}
-                  className="absolute left-0 top-0 whitespace-nowrap"
+                  className="[grid-area:1/1] whitespace-nowrap"
                   initial={{ opacity: 0, y: "100%" }}
                   animate={
                     wordIndex === i
