@@ -30,15 +30,53 @@ function Reveal({
   );
 }
 
+// Animated flowing line-paths — monochrome, on-brand backdrop (adapted, no glass/shadcn)
+function FloatingPaths({ position }: { position: number }) {
+  const paths = Array.from({ length: 36 }, (_, i) => ({
+    id: i,
+    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    width: 0.5 + i * 0.03,
+  }));
+
+  return (
+    <div className="absolute inset-0 pointer-events-none" style={{ color: "var(--text)" }}>
+      <svg className="w-full h-full" viewBox="0 0 696 316" fill="none" aria-hidden>
+        {paths.map((path) => (
+          <motion.path
+            key={path.id}
+            d={path.d}
+            stroke="currentColor"
+            strokeWidth={path.width}
+            strokeOpacity={0.05 + path.id * 0.012}
+            initial={{ pathLength: 0.3, opacity: 0.5 }}
+            animate={{ pathLength: 1, opacity: [0.18, 0.45, 0.18], pathOffset: [0, 1, 0] }}
+            transition={{
+              duration: 20 + Math.random() * 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+}
+
 export default function HeroSection() {
   const lines = [hero.headlineLine1, hero.headlineLine2, hero.headlineLine3];
 
   return (
     <section
-      className="relative flex flex-col justify-center items-center min-h-[88vh] px-6 pt-28 pb-16"
+      className="relative flex flex-col justify-center items-center min-h-[88vh] px-6 pt-28 pb-16 overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
-      <div className="w-full max-w-5xl mx-auto text-center flex flex-col items-center">
+      {/* Animated flowing paths backdrop */}
+      <div className="absolute inset-0 z-0 opacity-70">
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+      </div>
+
+      <div className="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center">
         {/* Eyebrow chip */}
         <Reveal>
           <span
@@ -109,7 +147,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom rule + trust micro-label */}
-      <Reveal delay={0.85} className="w-full max-w-5xl mx-auto mt-16">
+      <Reveal delay={0.85} className="relative z-10 w-full max-w-5xl mx-auto mt-16">
         <div className="rule pt-5 flex items-center justify-between">
           <span className="mono-label" style={{ color: "var(--muted)" }}>
             {hero.trustText}
