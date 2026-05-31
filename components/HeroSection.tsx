@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import homeData from "@/content/pages/home.json";
@@ -79,15 +79,42 @@ export default function HeroSection() {
     return () => clearTimeout(id);
   }, [wordIndex, rotating]);
 
+  // Cursor-reactive parallax: the two path layers drift with the pointer (opposite
+  // directions → depth). Springs smooth it; no pointer (touch) leaves it static.
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const sx = useSpring(mx, { stiffness: 50, damping: 18, mass: 0.4 });
+  const sy = useSpring(my, { stiffness: 50, damping: 18, mass: 0.4 });
+  const l1x = useTransform(sx, (v) => v * 28);
+  const l1y = useTransform(sy, (v) => v * 28);
+  const l2x = useTransform(sx, (v) => v * -18);
+  const l2y = useTransform(sy, (v) => v * -18);
+
+  function handlePointer(e: React.MouseEvent) {
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  }
+  function resetPointer() {
+    mx.set(0);
+    my.set(0);
+  }
+
   return (
     <section
+      onMouseMove={handlePointer}
+      onMouseLeave={resetPointer}
       className="relative flex flex-col justify-center items-center min-h-[88vh] px-6 pt-28 pb-16 overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
-      {/* Animated flowing paths backdrop */}
+      {/* Animated flowing paths backdrop — drifts with the cursor */}
       <div className="absolute inset-0 z-0">
-        <FloatingPaths position={1} />
-        <FloatingPaths position={-1} />
+        <motion.div className="absolute inset-0" style={{ x: l1x, y: l1y }}>
+          <FloatingPaths position={1} />
+        </motion.div>
+        <motion.div className="absolute inset-0" style={{ x: l2x, y: l2y }}>
+          <FloatingPaths position={-1} />
+        </motion.div>
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center">
