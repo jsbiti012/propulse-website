@@ -31,11 +31,22 @@ function Reveal({
   );
 }
 
+// One flowing path. The composition's full extent is near-square, so the
+// portrait variant is just the landscape one transposed (x/y swapped) into a
+// tall canvas — same fan, authored to sweep top-to-bottom on a phone.
+function buildPath(i: number, position: number, portrait: boolean) {
+  const s = i * 5 * position;
+  const o = i * 6;
+  return portrait
+    ? `M-${189 + o} -${380 - s}C-${189 + o} -${380 - s} ${216 - o} -${312 - s} ${343 - o} ${152 - s}C${470 - o} ${616 - s} ${875 - o} ${684 - s} ${875 - o} ${684 - s}`
+    : `M-${380 - s} -${189 + o}C-${380 - s} -${189 + o} -${312 - s} ${216 - o} ${152 - s} ${343 - o}C${616 - s} ${470 - o} ${684 - s} ${875 - o} ${684 - s} ${875 - o}`;
+}
+
 // Animated flowing line-paths — monochrome, on-brand backdrop (adapted, no glass/shadcn)
-function FloatingPaths({ position }: { position: number }) {
+function FloatingPaths({ position, portrait }: { position: number; portrait: boolean }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
     id: i,
-    d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${380 - i * 5 * position} -${189 + i * 6} -${312 - i * 5 * position} ${216 - i * 6} ${152 - i * 5 * position} ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${684 - i * 5 * position} ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
+    d: buildPath(i, position, portrait),
     width: 0.5 + i * 0.03,
   }));
 
@@ -43,7 +54,7 @@ function FloatingPaths({ position }: { position: number }) {
     <div className="absolute inset-0 pointer-events-none" style={{ color: "var(--text)" }}>
       <svg
         className="w-full h-full"
-        viewBox="0 0 696 316"
+        viewBox={portrait ? "0 0 316 696" : "0 0 696 316"}
         fill="none"
         preserveAspectRatio="xMidYMid slice"
         aria-hidden
@@ -85,6 +96,19 @@ export default function HeroSection() {
     return () => clearTimeout(id);
   }, [wordIndex, rotating]);
 
+  // Portrait phones get a tall-canvas path set so the line-fan sweeps
+  // corner-to-corner instead of zooming into the centre of the landscape one.
+  // Defaults to landscape for SSR; swaps after mount (backdrop fades in, so the
+  // switch is invisible).
+  const [portrait, setPortrait] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const update = () => setPortrait(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   // Cursor-reactive parallax: the two path layers drift with the pointer (opposite
   // directions → depth). Springs smooth it; no pointer (touch) leaves it static.
   const mx = useMotionValue(0);
@@ -122,7 +146,7 @@ export default function HeroSection() {
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         >
           <motion.div className="absolute inset-0" style={{ x: l1x, y: l1y }}>
-            <FloatingPaths position={1} />
+            <FloatingPaths position={1} portrait={portrait} />
           </motion.div>
         </motion.div>
         <motion.div
@@ -131,7 +155,7 @@ export default function HeroSection() {
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         >
           <motion.div className="absolute inset-0" style={{ x: l2x, y: l2y }}>
-            <FloatingPaths position={-1} />
+            <FloatingPaths position={-1} portrait={portrait} />
           </motion.div>
         </motion.div>
       </div>
