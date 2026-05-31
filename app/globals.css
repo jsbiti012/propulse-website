@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "@fontsource/open-sauce-one/800.css";
 
 :root {
   --bg: #FFFFFF;          /* pure white */

@@ -46,7 +46,7 @@ export default function Navbar() {
           />
           <span
             className="text-lg font-extrabold tracking-tight transition-colors duration-300"
-            style={{ color: fg }}
+            style={{ color: fg, fontFamily: '"Open Sauce One", sans-serif' }}
           >
             {siteData.name}
           </span>
