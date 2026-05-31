@@ -110,7 +110,7 @@ function BrowserMockup() {
           inset: "-40px",
           borderRadius: "50%",
           background:
-            "radial-gradient(ellipse at 50% 50%, rgba(67,97,238,0.55) 0%, rgba(123,92,245,0.35) 35%, transparent 70%)",
+            "radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.40) 0%, rgba(255,255,255,0.16) 35%, transparent 70%)",
           filter: "blur(40px)",
         }}
         animate={{ scale: [1, 1.12, 1], opacity: [0.7, 1, 0.7] }}
@@ -129,7 +129,7 @@ function BrowserMockup() {
             WebkitBackdropFilter: "blur(20px)",
             border: "1px solid rgba(255,255,255,0.13)",
             boxShadow:
-              "0 50px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(67,97,238,0.2), inset 0 1px 0 rgba(255,255,255,0.1)",
+              "0 50px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.12), inset 0 1px 0 rgba(255,255,255,0.1)",
           }}
         >
           {/* ── Animated light-sweep reflection ── */}
@@ -155,9 +155,9 @@ function BrowserMockup() {
             }}
           >
             <div className="flex gap-1.5 shrink-0">
-              <div className="w-3 h-3 rounded-full" style={{ background: "#FF5F57" }} />
-              <div className="w-3 h-3 rounded-full" style={{ background: "#FFBD2E" }} />
-              <div className="w-3 h-3 rounded-full" style={{ background: "#28CA41" }} />
+              <div className="w-3 h-3 rounded-full" style={{ background: "rgba(255,255,255,0.55)" }} />
+              <div className="w-3 h-3 rounded-full" style={{ background: "rgba(255,255,255,0.35)" }} />
+              <div className="w-3 h-3 rounded-full" style={{ background: "rgba(255,255,255,0.20)" }} />
             </div>
             <div
               className="flex-1 py-1.5 px-3 rounded-md text-xs"
@@ -184,13 +184,13 @@ function BrowserMockup() {
               }}
             >
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-lg" style={{ background: "#4361EE" }} />
+                <div className="w-6 h-6 rounded-lg" style={{ background: "#0A0A0A" }} />
                 <div className="w-16 h-3 rounded" style={{ background: "#1e293b" }} />
               </div>
               <div className="flex items-center gap-2">
                 <div className="hidden sm:block w-10 h-2.5 rounded" style={{ background: "#cbd5e1" }} />
                 <div className="hidden sm:block w-10 h-2.5 rounded" style={{ background: "#cbd5e1" }} />
-                <div className="w-16 h-7 rounded-lg" style={{ background: "#4361EE" }} />
+                <div className="w-16 h-7 rounded-lg" style={{ background: "#0A0A0A" }} />
               </div>
             </motion.div>
 
@@ -203,7 +203,7 @@ function BrowserMockup() {
               <div className="w-3/5 h-5 rounded mb-4" style={{ background: "#1e293b" }} />
               <div className="w-full h-2.5 rounded mb-1.5" style={{ background: "#e2e8f0" }} />
               <div className="w-3/4 h-2.5 rounded mb-5" style={{ background: "#e2e8f0" }} />
-              <div className="w-28 h-8 rounded-xl" style={{ background: "#4361EE" }} />
+              <div className="w-28 h-8 rounded-xl" style={{ background: "#0A0A0A" }} />
             </motion.div>
 
             {/* Mock feature cards — layer 3 (most movement, deepest z) */}
@@ -212,9 +212,9 @@ function BrowserMockup() {
               style={{ x: innerCardsX, y: innerCardsY }}
             >
               {[
-                { accent: "#EEF0FF", dot: "#4361EE" },
-                { accent: "#F0E0FF", dot: "#7B5CF5" },
-                { accent: "#E0F2FE", dot: "#0284C7" },
+                { accent: "#F2F1ED", dot: "#0A0A0A" },
+                { accent: "#ECEBE6", dot: "#555555" },
+                { accent: "#E4E3DD", dot: "#999999" },
               ].map(({ accent, dot }, i) => (
                 <div
                   key={i}
@@ -243,21 +243,21 @@ export default function HeroSection() {
   return (
     <section
       className="relative overflow-hidden min-h-[92vh] flex items-center"
-      style={{ background: "#080A17" }}
+      style={{ background: "#0A0A0A" }}
     >
-      {/* Background gradients */}
+      {/* Background glows — neutral white, no hue */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 65% -10%, rgba(67,97,238,0.22) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 65% -10%, rgba(255,255,255,0.10) 0%, transparent 60%)",
         }}
       />
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 50% 50% at 5% 85%, rgba(123,92,245,0.1) 0%, transparent 55%)",
+            "radial-gradient(ellipse 50% 50% at 5% 85%, rgba(255,255,255,0.05) 0%, transparent 55%)",
         }}
       />
 
@@ -282,9 +282,9 @@ export default function HeroSection() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-8 px-4 py-2 rounded-full"
               style={{
-                background: "rgba(67,97,238,0.14)",
-                color: "#7B9BFF",
-                border: "1px solid rgba(67,97,238,0.28)",
+                background: "rgba(255,255,255,0.08)",
+                color: "rgba(255,255,255,0.75)",
+                border: "1px solid rgba(255,255,255,0.18)",
               }}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
@@ -298,7 +298,7 @@ export default function HeroSection() {
             >
               {[
                 { words: hero.headlineLine1.split(" "), gradient: false },
-                { words: hero.headlineLine2.split(" "), gradient: true },
+                { words: hero.headlineLine2.split(" "), gradient: false },
                 { words: hero.headlineLine3.split(" "), gradient: false },
               ].map(({ words, gradient }, i) => (
                 <span key={i} className="block">
@@ -335,18 +335,18 @@ export default function HeroSection() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-bold rounded-2xl transition-all hover:scale-105 hover:shadow-xl w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2.5 px-7 py-4 text-sm font-bold rounded-full transition-all hover:scale-105 hover:shadow-xl w-full sm:w-auto"
                 style={{
-                  background: "var(--accent)",
-                  color: "#fff",
-                  boxShadow: "0 8px 32px rgba(67,97,238,0.45)",
+                  background: "#FFFFFF",
+                  color: "#0A0A0A",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.45)",
                 }}
               >
                 {hero.primaryCtaLabel} <ArrowRight size={17} />
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-bold rounded-2xl border transition-all hover:bg-white/5 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 px-7 py-4 text-sm font-bold rounded-full border transition-all hover:bg-white/5 w-full sm:w-auto"
                 style={{
                   color: "rgba(255,255,255,0.7)",
                   borderColor: "rgba(255,255,255,0.14)",

@@ -18,10 +18,10 @@ function formatDate(dateStr: string) {
 }
 
 const categoryColors: Record<string, { bg: string; color: string }> = {
-  Conseils: { bg: "#EEF0FF", color: "#4361EE" },
-  SEO: { bg: "#E0F2FE", color: "#0284C7" },
-  Design: { bg: "#F3E8FF", color: "#7B5CF5" },
-  Marketing: { bg: "#FFF4E0", color: "#F59E0B" },
+  Conseils: { bg: "#F2F1ED", color: "#0A0A0A" },
+  SEO: { bg: "#F2F1ED", color: "#0A0A0A" },
+  Design: { bg: "#F2F1ED", color: "#0A0A0A" },
+  Marketing: { bg: "#F2F1ED", color: "#0A0A0A" },
 };
 
 function getCategoryStyle(category: string) {
@@ -35,12 +35,12 @@ export default function BlogPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden" style={{ background: "#080A17" }}>
+      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 60% 60% at 85% 20%, rgba(123,92,245,0.18) 0%, transparent 55%)",
+              "radial-gradient(ellipse 60% 60% at 85% 20%, rgba(255,255,255,0.08) 0%, transparent 55%)",
           }}
         />
         <div
@@ -55,7 +55,7 @@ export default function BlogPage() {
           <FadeUp className="max-w-2xl">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ color: "#7B9BFF" }}
+              style={{ color: "rgba(255,255,255,0.65)" }}
             >
               {hero.label}
             </p>
@@ -152,7 +152,7 @@ export default function BlogPage() {
         <div
           className="absolute inset-0 opacity-20 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at 70% 50%, #4361EE 0%, transparent 65%)",
+            background: "radial-gradient(ellipse at 70% 50%, #FFFFFF 0%, transparent 65%)",
           }}
         />
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-20 relative">
@@ -170,7 +170,7 @@ export default function BlogPage() {
             </div>
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-2.5 px-7 py-4 text-sm font-bold rounded-2xl transition-all hover:scale-105"
+              className="shrink-0 inline-flex items-center gap-2.5 px-7 py-4 text-sm font-bold rounded-full transition-all hover:scale-105"
               style={{
                 background: "#fff",
                 color: "var(--dark)",

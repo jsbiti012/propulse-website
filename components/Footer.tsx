@@ -35,9 +35,9 @@ export default function Footer() {
                     color: "rgba(255,255,255,0.55)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(67,97,238,0.25)";
+                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.18)";
                     (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(67,97,238,0.4)";
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.3)";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.07)";

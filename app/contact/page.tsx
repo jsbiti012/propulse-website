@@ -9,12 +9,12 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden" style={{ background: "#080A17" }}>
+      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 70% 60% at 10% 50%, rgba(67,97,238,0.2) 0%, transparent 60%)",
+              "radial-gradient(ellipse 70% 60% at 10% 50%, rgba(255,255,255,0.10) 0%, transparent 60%)",
           }}
         />
         <div
@@ -29,7 +29,7 @@ export default function ContactPage() {
           <FadeUp className="max-w-2xl">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ color: "#7B9BFF" }}
+              style={{ color: "rgba(255,255,255,0.65)" }}
             >
               {hero.label}
             </p>

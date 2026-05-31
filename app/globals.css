@@ -2,15 +2,15 @@
 
 :root {
   --bg: #FFFFFF;
-  --surface: #F5F5FA;
-  --surface-2: #EEEEF8;
-  --border: #E2E2EC;
-  --text: #0C0E1A;
-  --muted: #6B7280;
-  --accent: #4361EE;
-  --accent-light: #EEF0FF;
-  --accent-2: #7B5CF5;
-  --dark: #0C0E1A;
+  --surface: #F7F6F3;
+  --surface-2: #F2F1ED;
+  --border: #E6E4DE;
+  --text: #0A0A0A;
+  --muted: #6E6E6E;
+  --accent: #0A0A0A;
+  --accent-light: #F2F1ED;
+  --accent-2: #0A0A0A;
+  --dark: #0A0A0A;
 }
 
 * {
@@ -106,12 +106,19 @@ body {
   margin: 2.5em 0;
 }
 
-/* Gradient text utility */
+/* Emphasis word in headlines — inherits heading color, no gradient (B/W editorial).
+   Inheriting keeps it visible on both light sections (ink) and dark sections (white). */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: none;
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
+}
+
+/* Tracked-out uppercase micro-label (AIR-style detail) */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
 }
 
 /* Pulse ring animation for timeline circles */

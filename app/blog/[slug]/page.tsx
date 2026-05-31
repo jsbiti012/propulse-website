@@ -43,12 +43,12 @@ export default async function PostPage({
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden" style={{ background: "#080A17" }}>
+      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(67,97,238,0.15) 0%, transparent 60%)",
+              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 60%)",
           }}
         />
         <div
@@ -72,7 +72,7 @@ export default async function PostPage({
           <div className="flex flex-wrap items-center gap-2 mb-6">
             <span
               className="text-xs font-bold px-3 py-1.5 rounded-full"
-              style={{ background: "rgba(67,97,238,0.2)", color: "#7B9BFF" }}
+              style={{ background: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.8)" }}
             >
               {post.category}
             </span>
@@ -131,11 +131,11 @@ export default async function PostPage({
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold rounded-xl transition-all hover:scale-105"
+            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold rounded-full transition-all hover:scale-105"
             style={{
               background: "var(--accent)",
               color: "#fff",
-              boxShadow: "0 6px 20px rgba(67,97,238,0.3)",
+              boxShadow: "0 6px 20px rgba(0,0,0,0.2)",
             }}
           >
             {blogPostCta.ctaLabel}

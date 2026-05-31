@@ -42,14 +42,14 @@ export default function Home() {
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center"
                     style={{
-                      background: "rgba(67,97,238,0.15)",
-                      boxShadow: "0 0 18px rgba(67,97,238,0.25)",
+                      background: "rgba(255,255,255,0.08)",
+                      boxShadow: "0 0 18px rgba(255,255,255,0.10)",
                     }}
                   >
-                    <Icon size={22} style={{ color: "#7B9BFF" }} />
+                    <Icon size={22} style={{ color: "#FFFFFF" }} />
                   </div>
                   {/* Number */}
-                  <p className="text-4xl md:text-5xl font-extrabold tracking-tight gradient-text">
+                  <p className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ color: "#FFFFFF" }}>
                     <CounterUp value={value} />
                   </p>
                   {/* Label */}
@@ -98,7 +98,7 @@ export default function Home() {
               left: "calc(100% / 6)",
               right: "calc(100% / 6)",
               background:
-                "linear-gradient(90deg, transparent, rgba(67,97,238,0.35) 20%, rgba(123,92,245,0.35) 80%, transparent)",
+                "linear-gradient(90deg, transparent, rgba(10,10,10,0.18) 20%, rgba(10,10,10,0.18) 80%, transparent)",
             }}
           />
 
@@ -116,16 +116,16 @@ export default function Home() {
                       style={{
                         width: 44,
                         height: 44,
-                        background: "rgba(67,97,238,0.25)",
+                        background: "rgba(10,10,10,0.12)",
                       }}
                     />
                     {/* Circle */}
                     <div
                       className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center font-extrabold text-sm"
                       style={{
-                        background: "linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%)",
+                        background: "var(--accent)",
                         color: "#fff",
-                        boxShadow: "0 4px 14px rgba(67,97,238,0.4), 0 0 0 3px var(--bg), 0 0 0 4.5px rgba(67,97,238,0.2)",
+                        boxShadow: "0 4px 14px rgba(0,0,0,0.25), 0 0 0 3px var(--bg), 0 0 0 4.5px rgba(10,10,10,0.12)",
                       }}
                     >
                       {num}
@@ -135,7 +135,7 @@ export default function Home() {
                   <div>
                     <div
                       className="w-8 h-8 rounded-xl flex items-center justify-center mb-3 md:mx-auto"
-                      style={{ background: "linear-gradient(135deg, var(--accent-light) 0%, rgba(123,92,245,0.1) 100%)" }}
+                      style={{ background: "var(--surface-2)" }}
                     >
                       <Icon size={16} style={{ color: "var(--accent)" }} />
                     </div>
@@ -194,7 +194,7 @@ export default function Home() {
                   <div
                     className="w-11 h-11 rounded-xl flex items-center justify-center"
                     style={{
-                      background: "linear-gradient(135deg, var(--accent-light) 0%, rgba(123,92,245,0.1) 100%)",
+                      background: "var(--surface-2)",
                     }}
                   >
                     <Icon size={20} style={{ color: "var(--accent)" }} />
@@ -257,15 +257,15 @@ export default function Home() {
                     className="rounded-2xl flex flex-col h-full relative overflow-hidden"
                     style={{
                       background: "var(--dark)",
-                      borderTop: `3px solid ${pack.accent}`,
+                      borderTop: "3px solid #FFFFFF",
                     }}
                   >
                     {pack.featured && (
                       <div
                         className="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full"
                         style={{
-                          background: pack.accent,
-                          color: "#fff",
+                          background: "#FFFFFF",
+                          color: "var(--dark)",
                         }}
                       >
                         Populaire
@@ -276,7 +276,7 @@ export default function Home() {
                       <div>
                         <p
                           className="text-xs font-bold uppercase tracking-widest mb-2"
-                          style={{ color: pack.accent }}
+                          style={{ color: "rgba(255,255,255,0.6)" }}
                         >
                           {pack.name}
                         </p>
@@ -308,10 +308,10 @@ export default function Home() {
                               fill="none"
                               className="shrink-0 mt-0.5"
                             >
-                              <circle cx="8" cy="8" r="7" fill={pack.accent} fillOpacity="0.15" />
+                              <circle cx="8" cy="8" r="7" fill="#FFFFFF" fillOpacity="0.15" />
                               <path
                                 d="M5 8l2 2 4-4"
-                                stroke={pack.accent}
+                                stroke="#FFFFFF"
                                 strokeWidth="1.5"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -324,10 +324,10 @@ export default function Home() {
 
                       <Link
                         href="/contact"
-                        className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold rounded-xl transition-all hover:opacity-90 mt-2"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold rounded-full transition-all hover:opacity-90 mt-2"
                         style={{
-                          background: pack.accent,
-                          color: "#fff",
+                          background: "#FFFFFF",
+                          color: "var(--dark)",
                         }}
                       >
                         Démarrer ce projet <ArrowRight size={15} />
@@ -350,7 +350,7 @@ export default function Home() {
           className="absolute inset-0 opacity-25 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 70% 50%, #4361EE 0%, transparent 65%)",
+              "radial-gradient(ellipse at 70% 50%, #FFFFFF 0%, transparent 65%)",
           }}
         />
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 relative">
@@ -369,7 +369,7 @@ export default function Home() {
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold rounded-2xl transition-all hover:scale-105"
+              className="group inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold rounded-full transition-all hover:scale-105"
               style={{
                 background: "#fff",
                 color: "var(--dark)",

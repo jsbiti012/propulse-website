@@ -27,7 +27,7 @@ export default function Navbar() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="sticky top-0 z-50 w-full transition-all duration-300"
       style={{
-        background: "#080A17",
+        background: "#0A0A0A",
         borderBottom: scrolled
           ? "1px solid rgba(255,255,255,0.08)"
           : "1px solid transparent",
@@ -63,7 +63,7 @@ export default function Navbar() {
                   <motion.span
                     layoutId="nav-pill"
                     className="absolute inset-0 rounded-lg"
-                    style={{ background: "rgba(67,97,238,0.22)" }}
+                    style={{ background: "rgba(255,255,255,0.14)" }}
                     transition={{ type: "spring", stiffness: 400, damping: 35 }}
                   />
                 )}
@@ -76,11 +76,11 @@ export default function Navbar() {
         {/* CTA */}
         <Link
           href={navCta.href}
-          className="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-bold rounded-xl transition-all hover:scale-105 hover:shadow-lg"
+          className="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg"
           style={{
-            background: "var(--accent)",
-            color: "#fff",
-            boxShadow: "0 4px 14px rgba(67,97,238,0.35)",
+            background: "#FFFFFF",
+            color: "var(--dark)",
+            boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
           }}
         >
           {navCta.label}
@@ -108,7 +108,7 @@ export default function Navbar() {
             className="md:hidden overflow-hidden border-t"
             style={{
               borderColor: "rgba(255,255,255,0.08)",
-              background: "#0C0E1A",
+              background: "#0A0A0A",
             }}
           >
             <div className="px-6 py-4 flex flex-col gap-1">
@@ -123,7 +123,7 @@ export default function Navbar() {
                       pathname === href ? "#fff" : "rgba(255,255,255,0.55)",
                     background:
                       pathname === href
-                        ? "rgba(67,97,238,0.2)"
+                        ? "rgba(255,255,255,0.14)"
                         : "transparent",
                   }}
                 >
@@ -133,8 +133,8 @@ export default function Navbar() {
               <Link
                 href={navCta.href}
                 onClick={() => setOpen(false)}
-                className="mt-3 flex items-center justify-center px-5 py-3 text-sm font-bold rounded-xl"
-                style={{ background: "var(--accent)", color: "#fff" }}
+                className="mt-3 flex items-center justify-center px-5 py-3 text-sm font-bold rounded-full"
+                style={{ background: "#FFFFFF", color: "var(--dark)" }}
               >
                 {navCta.label}
               </Link>

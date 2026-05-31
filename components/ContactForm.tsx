@@ -76,7 +76,7 @@ export default function ContactForm({
               animate={{ scale: 1 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
-              <CheckCircle size={52} className="mx-auto mb-6" style={{ color: "#10B981" }} />
+              <CheckCircle size={52} className="mx-auto mb-6" style={{ color: "var(--accent)" }} />
             </motion.div>
             <h2 className="text-2xl font-extrabold tracking-tight mb-3" style={{ color: "var(--text)" }}>
               Message envoyé !
@@ -163,7 +163,7 @@ export default function ContactForm({
             </div>
 
             {error && (
-              <p className="text-sm font-medium" style={{ color: "#EF4444" }}>
+              <p className="text-sm font-semibold" style={{ color: "var(--accent)" }}>
                 {error}
               </p>
             )}
@@ -173,11 +173,11 @@ export default function ContactForm({
               disabled={loading}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-bold rounded-xl disabled:opacity-60 disabled:cursor-not-allowed"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-bold rounded-full disabled:opacity-60 disabled:cursor-not-allowed"
               style={{
                 background: "var(--accent)",
                 color: "#fff",
-                boxShadow: "0 6px 20px rgba(67,97,238,0.3)",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.2)",
               }}
             >
               {loading ? "Envoi en cours..." : "Envoyer le message"}
@@ -244,7 +244,7 @@ export default function ContactForm({
 
         <div
           className="rounded-2xl p-7 border"
-          style={{ background: "var(--accent-light)", borderColor: "rgba(67,97,238,0.15)" }}
+          style={{ background: "var(--accent-light)", borderColor: "var(--border)" }}
         >
           <h3 className="text-sm font-extrabold mb-4" style={{ color: "var(--text)" }}>
             Ce qui se passe ensuite

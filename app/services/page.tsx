@@ -18,19 +18,19 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── Dark hero header ── */}
-      <section className="relative overflow-hidden" style={{ background: "#080A17" }}>
+      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 70% 60% at 80% 20%, rgba(67,97,238,0.2) 0%, transparent 60%)",
+              "radial-gradient(ellipse 70% 60% at 80% 20%, rgba(255,255,255,0.10) 0%, transparent 60%)",
           }}
         />
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 50% 50% at 5% 85%, rgba(123,92,245,0.1) 0%, transparent 55%)",
+              "radial-gradient(ellipse 50% 50% at 5% 85%, rgba(255,255,255,0.05) 0%, transparent 55%)",
           }}
         />
         <div
@@ -45,7 +45,7 @@ export default function ServicesPage() {
           <FadeUp className="max-w-3xl">
             <p
               className="text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ color: "#7B9BFF" }}
+              style={{ color: "rgba(255,255,255,0.65)" }}
             >
               {hero.label}
             </p>
@@ -78,13 +78,13 @@ export default function ServicesPage() {
                     style={{
                       background: "rgba(255,255,255,0.04)",
                       border: "1px solid rgba(255,255,255,0.07)",
-                      borderTop: `3px solid ${pack.accent}`,
+                      borderTop: "3px solid #FFFFFF",
                     }}
                   >
                     {pack.featured && (
                       <div
                         className="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full"
-                        style={{ background: pack.accent, color: "#fff" }}
+                        style={{ background: "#FFFFFF", color: "var(--dark)" }}
                       >
                         Populaire
                       </div>
@@ -94,7 +94,7 @@ export default function ServicesPage() {
                       <div>
                         <p
                           className="text-xs font-bold uppercase tracking-widest mb-2"
-                          style={{ color: pack.accent }}
+                          style={{ color: "rgba(255,255,255,0.6)" }}
                         >
                           {pack.name}
                         </p>
@@ -169,9 +169,9 @@ export default function ServicesPage() {
                           >
                             <div
                               className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                              style={{ background: `${pack.accent}22` }}
+                              style={{ background: "rgba(255,255,255,0.12)" }}
                             >
-                              <Check size={11} style={{ color: pack.accent }} />
+                              <Check size={11} style={{ color: "#FFFFFF" }} />
                             </div>
                             {f}
                           </li>
@@ -180,8 +180,8 @@ export default function ServicesPage() {
 
                       <Link
                         href="/contact"
-                        className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold rounded-xl transition-all hover:opacity-90 mt-2"
-                        style={{ background: pack.accent, color: "#fff" }}
+                        className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-bold rounded-full transition-all hover:opacity-90 mt-2"
+                        style={{ background: "#FFFFFF", color: "var(--dark)" }}
                       >
                         {pack.ctaLabel} <ArrowRight size={15} />
                       </Link>
@@ -270,7 +270,7 @@ export default function ServicesPage() {
         <div
           className="absolute inset-0 opacity-25 pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at 30% 50%, #4361EE 0%, transparent 65%)",
+            background: "radial-gradient(ellipse at 30% 50%, #FFFFFF 0%, transparent 65%)",
           }}
         />
         <div className="mx-auto max-w-6xl px-6 py-14 md:py-24 relative">
@@ -288,7 +288,7 @@ export default function ServicesPage() {
             </div>
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-2.5 px-7 py-4 text-sm font-bold rounded-2xl transition-all hover:scale-105"
+              className="shrink-0 inline-flex items-center gap-2.5 px-7 py-4 text-sm font-bold rounded-full transition-all hover:scale-105"
               style={{
                 background: "#fff",
                 color: "var(--dark)",
