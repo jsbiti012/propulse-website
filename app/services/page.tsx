@@ -47,10 +47,10 @@ export default function ServicesPage() {
               const muted = dark ? "rgba(255,255,255,0.55)" : "var(--muted)";
               const hairline = dark ? "rgba(255,255,255,0.16)" : "var(--border)";
               return (
-                <StaggerItem key={pack.name} className={dark ? "md:relative md:z-10" : ""}>
+                <StaggerItem key={pack.name}>
                   <div
-                    className={`h-full flex flex-col p-8 pt-12 relative overflow-hidden ${
-                      dark ? "texture-v md:scale-[1.03]" : ""
+                    className={`group h-full flex flex-col p-8 pt-12 relative overflow-hidden ${
+                      dark ? "texture-v" : ""
                     }`}
                     style={{ background: dark ? "var(--dark)" : "var(--bg)" }}
                   >
@@ -70,6 +70,11 @@ export default function ServicesPage() {
                     <div className="relative z-[1]">
                       <p className="mono-label" style={{ color: muted }}>{pack.name}</p>
                       <h3 className="display text-2xl mt-3" style={{ color: fg }}>{pack.tagline}</h3>
+                      {/* hairline draws across on hover */}
+                      <span
+                        className="block h-px w-0 mt-3 group-hover:w-full transition-[width] duration-500 ease-out"
+                        style={{ background: fg, opacity: 0.35 }}
+                      />
                       <p className="text-sm leading-relaxed mt-3" style={{ color: muted }}>{pack.desc}</p>
                     </div>
 
@@ -90,9 +95,14 @@ export default function ServicesPage() {
 
                     {/* Features zone */}
                     <ul className="relative z-[1] flex flex-col gap-3 mt-7 pt-7 flex-1 border-t" style={{ borderColor: hairline }}>
-                      {pack.features.map((f) => (
+                      {pack.features.map((f, i) => (
                         <li key={f} className="flex items-start gap-3 text-sm" style={{ color: fg }}>
-                          <Check size={15} strokeWidth={2} className="shrink-0 mt-0.5" style={{ color: muted }} />
+                          <Check
+                            size={15}
+                            strokeWidth={2}
+                            className="shrink-0 mt-0.5 transition-transform duration-300 group-hover:translate-x-1"
+                            style={{ color: muted, transitionDelay: `${i * 45}ms` }}
+                          />
                           {f}
                         </li>
                       ))}
@@ -104,7 +114,11 @@ export default function ServicesPage() {
                       className="relative z-[1] inline-flex items-center justify-center gap-2 px-5 py-3.5 text-xs font-medium uppercase tracking-widest mt-8 transition-colors"
                       style={dark ? { background: "#fff", color: "var(--dark)" } : { background: "var(--text)", color: "var(--bg)" }}
                     >
-                      {pack.ctaLabel} <ArrowRight size={14} />
+                      {pack.ctaLabel}
+                      <ArrowRight
+                        size={14}
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      />
                     </Link>
                   </div>
                 </StaggerItem>
