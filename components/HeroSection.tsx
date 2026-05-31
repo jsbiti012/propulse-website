@@ -41,7 +41,13 @@ function FloatingPaths({ position }: { position: number }) {
 
   return (
     <div className="absolute inset-0 pointer-events-none" style={{ color: "var(--text)" }}>
-      <svg className="w-full h-full" viewBox="0 0 696 316" fill="none" aria-hidden>
+      <svg
+        className="w-full h-full"
+        viewBox="0 0 696 316"
+        fill="none"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden
+      >
         {paths.map((path) => (
           <motion.path
             key={path.id}
@@ -50,7 +56,7 @@ function FloatingPaths({ position }: { position: number }) {
             strokeWidth={path.width}
             strokeOpacity={0.05 + path.id * 0.013}
             initial={{ pathLength: 0.3, opacity: 0.5 }}
-            animate={{ pathLength: 1, opacity: [0.16, 0.32, 0.16], pathOffset: [0, 1, 0] }}
+            animate={{ pathLength: 1, opacity: [0.2, 0.42, 0.2], pathOffset: [0, 1, 0] }}
             transition={{
               duration: 20 + Math.random() * 10,
               repeat: Infinity,
@@ -107,13 +113,26 @@ export default function HeroSection() {
       className="relative flex flex-col justify-center items-center min-h-[88vh] px-6 pt-28 pb-16 overflow-hidden"
       style={{ background: "var(--bg)" }}
     >
-      {/* Animated flowing paths backdrop — drifts with the cursor */}
+      {/* Animated flowing paths backdrop — ambient drift always on (so touch
+          devices feel alive), with cursor parallax layered on top for desktop */}
       <div className="absolute inset-0 z-0">
-        <motion.div className="absolute inset-0" style={{ x: l1x, y: l1y }}>
-          <FloatingPaths position={1} />
+        <motion.div
+          className="absolute inset-0"
+          animate={{ x: [0, 18, 0], y: [0, -12, 0] }}
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <motion.div className="absolute inset-0" style={{ x: l1x, y: l1y }}>
+            <FloatingPaths position={1} />
+          </motion.div>
         </motion.div>
-        <motion.div className="absolute inset-0" style={{ x: l2x, y: l2y }}>
-          <FloatingPaths position={-1} />
+        <motion.div
+          className="absolute inset-0"
+          animate={{ x: [0, -22, 0], y: [0, 14, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <motion.div className="absolute inset-0" style={{ x: l2x, y: l2y }}>
+            <FloatingPaths position={-1} />
+          </motion.div>
         </motion.div>
       </div>
 
