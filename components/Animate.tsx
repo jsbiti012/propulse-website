@@ -66,6 +66,56 @@ export function StaggerItem({ children, className = "" }: { children: React.Reac
   );
 }
 
+// Hairline that "draws" itself in from the left when scrolled into view (editorial detail)
+export function DrawRule({ className = "" }: { className?: string }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      className={className}
+      style={{ height: 1, background: "var(--line)", transformOrigin: "left center" }}
+      initial={{ scaleX: 0 }}
+      animate={inView ? { scaleX: 1 } : {}}
+      transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+    />
+  );
+}
+
+// Headline reveal: text slides up from behind a clipped mask when scrolled into view.
+// Renders as <span> so it stays valid inside an <h1>/<h2>. The padding/-margin pair
+// gives descenders (ç, g, p…) room without changing layout.
+export function MaskReveal({
+  children,
+  className = "",
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <span
+      ref={ref}
+      className={`block overflow-hidden ${className}`}
+      style={{ paddingBottom: "0.12em", marginBottom: "-0.12em" }}
+    >
+      <motion.span
+        className="block"
+        initial={{ y: "115%" }}
+        animate={inView ? { y: "0%" } : {}}
+        transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
+      >
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
 export function ScaleOnHover({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.div

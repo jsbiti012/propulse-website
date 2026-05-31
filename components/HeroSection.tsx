@@ -104,7 +104,7 @@ export default function HeroSection() {
 
         {/* Headline — with rotating business type */}
         <h1
-          className="display mt-8 text-[2.8rem] sm:text-6xl lg:text-7xl xl:text-8xl"
+          className="display mt-8 text-[2rem] min-[420px]:text-[2.5rem] sm:text-6xl lg:text-7xl xl:text-8xl"
           style={{ color: "var(--text)" }}
         >
           {/* Line 1: "Votre [rotating word]" on one line */}

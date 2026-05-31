@@ -5,6 +5,8 @@ import {
   StaggerGrid,
   StaggerItem,
   CounterUp,
+  DrawRule,
+  MaskReveal,
 } from "@/components/Animate";
 import HeroSection from "@/components/HeroSection";
 import homeData from "@/content/pages/home.json";
@@ -18,15 +20,18 @@ const WHY_US_ICONS = [Zap, Shield, Users, CheckCircle];
 
 function SectionLabel({ label, index }: { label: string; index?: string }) {
   return (
-    <div className="rule pt-4 flex items-center justify-between">
-      <span className="mono-label" style={{ color: "var(--text)" }}>
-        {label}
-      </span>
-      {index && (
-        <span className="mono-label" style={{ color: "var(--muted)" }}>
-          {index}
+    <div>
+      <DrawRule />
+      <div className="pt-4 flex items-center justify-between">
+        <span className="mono-label" style={{ color: "var(--text)" }}>
+          {label}
         </span>
-      )}
+        {index && (
+          <span className="mono-label" style={{ color: "var(--muted)" }}>
+            {index}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
@@ -70,10 +75,10 @@ export default function Home() {
           <SectionLabel label="Le processus" index="01 / 03" />
         </FadeUp>
         <div className="py-12 md:py-20">
-          <FadeUp>
-            <h2 className="display text-4xl md:text-6xl max-w-2xl" style={{ color: "var(--text)" }}>
-              Comment ça marche
-            </h2>
+          <h2 className="display text-4xl md:text-6xl max-w-2xl" style={{ color: "var(--text)" }}>
+            <MaskReveal>Comment ça marche</MaskReveal>
+          </h2>
+          <FadeUp delay={0.15}>
             <p className="mt-5 text-base max-w-lg" style={{ color: "var(--muted)" }}>
               De la prise de contact à la mise en ligne, on vous accompagne à chaque étape.
             </p>
@@ -110,11 +115,9 @@ export default function Home() {
           <SectionLabel label="Pourquoi Propulse" index="02 / 03" />
         </FadeUp>
         <div className="py-12 md:py-20">
-          <FadeUp>
-            <h2 className="display text-4xl md:text-6xl max-w-3xl" style={{ color: "var(--text)" }}>
-              Un partenaire local qui comprend vos besoins.
-            </h2>
-          </FadeUp>
+          <h2 className="display text-4xl md:text-6xl max-w-3xl" style={{ color: "var(--text)" }}>
+            <MaskReveal>Un partenaire local qui comprend vos besoins.</MaskReveal>
+          </h2>
 
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-14 bg-[var(--border)]">
             {whyUsData.map(({ title, desc }, idx) => {
@@ -150,7 +153,7 @@ export default function Home() {
         <div className="py-12 md:py-20">
           <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <h2 className="display text-4xl md:text-6xl max-w-2xl" style={{ color: "var(--text)" }}>
-              Une formule pour chaque besoin.
+              <MaskReveal>Une formule pour chaque besoin.</MaskReveal>
             </h2>
             <Link
               href="/services"
@@ -230,7 +233,7 @@ export default function Home() {
               className="display text-4xl md:text-6xl lg:text-7xl"
               style={{ color: "#fff" }}
             >
-              {homeCta.headline}
+              <MaskReveal>{homeCta.headline}</MaskReveal>
             </h2>
             <p className="mt-6 text-lg max-w-xl" style={{ color: "rgba(255,255,255,0.55)" }}>
               {homeCta.subCopy}

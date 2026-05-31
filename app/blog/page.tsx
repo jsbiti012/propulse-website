@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/mdx";
 import { ArrowRight, Clock } from "lucide-react";
-import { FadeUp, StaggerGrid, StaggerItem } from "@/components/Animate";
+import { FadeUp, StaggerGrid, StaggerItem, DrawRule, MaskReveal } from "@/components/Animate";
 import { blogPage } from "@/content.config";
 
 export const metadata = {
@@ -28,7 +28,7 @@ export default function BlogPage() {
         <FadeUp>
           <span className="mono-label" style={{ color: "var(--muted)" }}>{hero.label}</span>
           <h1 className="display text-5xl md:text-7xl xl:text-8xl mt-6 max-w-4xl" style={{ color: "var(--text)" }}>
-            {hero.headline} {hero.headlineGradient}
+            <MaskReveal>{hero.headline} {hero.headlineGradient}</MaskReveal>
           </h1>
           <p className="mt-7 text-lg max-w-xl" style={{ color: "var(--muted)" }}>{hero.subCopy}</p>
         </FadeUp>
@@ -36,14 +36,15 @@ export default function BlogPage() {
 
       {/* Posts */}
       <section className="mx-auto max-w-6xl px-6">
-        <FadeUp>
-          <div className="rule pt-4 flex items-center justify-between">
+        <div>
+          <DrawRule />
+          <div className="pt-4 flex items-center justify-between">
             <span className="mono-label" style={{ color: "var(--text)" }}>Journal</span>
             <span className="mono-label" style={{ color: "var(--muted)" }}>
               {posts.length} article{posts.length > 1 ? "s" : ""}
             </span>
           </div>
-        </FadeUp>
+        </div>
 
         <div className="py-12 md:py-20">
           {posts.length === 0 ? (
@@ -86,7 +87,9 @@ export default function BlogPage() {
         <div className="relative z-[1] mx-auto max-w-6xl px-6 py-20 md:py-28">
           <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-2xl">
-              <h2 className="display text-4xl md:text-6xl" style={{ color: "#fff" }}>{cta.headline}</h2>
+              <h2 className="display text-4xl md:text-6xl" style={{ color: "#fff" }}>
+                <MaskReveal>{cta.headline}</MaskReveal>
+              </h2>
               <p className="mt-5 text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>{cta.subCopy}</p>
             </div>
             <Link
