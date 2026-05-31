@@ -153,7 +153,7 @@ export default function ContactForm({
             </div>
             <div>
               <p className="mono-label mb-1.5" style={{ color: "var(--muted)" }}>Email</p>
-              <a href={`mailto:${email}`} className="link-underline text-sm font-bold" style={{ color: "var(--text)" }}>
+              <a href={`mailto:${email}`} className="link-underline inline-flex items-center min-h-[44px] text-sm font-bold" style={{ color: "var(--text)" }}>
                 {email}
               </a>
             </div>
