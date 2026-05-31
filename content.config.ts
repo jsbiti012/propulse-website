@@ -17,18 +17,6 @@ import type { LucideIcon } from "lucide-react";
 // Types
 // ─────────────────────────────────────────────
 
-export interface Pack {
-  name: string;
-  tagline: string;
-  desc: string;
-  price: string;
-  monthly: string;
-  monthlyNote: string;
-  features: string[];
-  accent: string;
-  featured?: boolean;
-}
-
 export interface Step {
   num: string;
   icon: LucideIcon;
@@ -171,61 +159,6 @@ export const whyUs: { icon: LucideIcon; title: string; desc: string }[] = [
   },
 ];
 
-// ─────────────────────────────────────────────
-// Pricing plans (single source — used on both homepage and services page)
-// ─────────────────────────────────────────────
-
-export const packs: Pack[] = [
-  {
-    name: "Site Web Essentiel",
-    tagline: "Présence digitale professionnelle",
-    desc: "Idéal pour démarrer avec un site propre, professionnel, et opérationnel rapidement.",
-    price: "5 900",
-    monthly: "250",
-    monthlyNote: "maintenance + hébergement sécurisé",
-    features: [
-      "Site web professionnel",
-      "Design moderne et responsive",
-      "Hébergement sécurisé",
-      "Maintenance technique",
-      "Support client",
-    ],
-    accent: "#4361EE",
-  },
-  {
-    name: "Site + Agent WhatsApp",
-    tagline: "Site web + automatisation WhatsApp",
-    desc: "Pour les entreprises qui veulent convertir leurs visiteurs en clients automatiquement.",
-    price: "7 900",
-    monthly: "990",
-    monthlyNote: "maintenance + automatisation WhatsApp",
-    features: [
-      "Tout du plan Site Web",
-      "Assistant WhatsApp intelligent",
-      "Réponses automatiques clients",
-      "Capture de leads",
-      "Prise de rendez-vous",
-    ],
-    accent: "#7B5CF5",
-    featured: true,
-  },
-  {
-    name: "Automatisation Business",
-    tagline: "Automatisation avancée",
-    desc: "Pour les PME qui veulent automatiser leur croissance et fidéliser leurs clients.",
-    price: "9 900",
-    monthly: "2 490",
-    monthlyNote: "maintenance + automatisations avancées",
-    features: [
-      "Tout du plan WhatsApp IA",
-      "Automatisations avancées",
-      "Relances clients automatiques",
-      "Intégrations business",
-      "Support dédié",
-    ],
-    accent: "#0EA5E9",
-  },
-];
 
 // ─────────────────────────────────────────────
 // Homepage CTA banner
