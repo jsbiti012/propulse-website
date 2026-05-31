@@ -51,7 +51,7 @@ export default function Home() {
               return (
                 <StaggerItem key={value}>
                   <div
-                    className="px-2 sm:px-8 py-12 sm:py-16 flex flex-col gap-4 border-t sm:border-t-0 sm:border-l first:border-t-0 first:sm:border-l-0"
+                    className="px-2 sm:px-8 py-12 sm:py-16 flex flex-col items-center text-center gap-4 border-t sm:border-t-0 sm:border-l first:border-t-0 first:sm:border-l-0"
                     style={{ borderColor: "rgba(255,255,255,0.14)" }}
                   >
                     <Icon size={18} style={{ color: "rgba(255,255,255,0.6)" }} />
