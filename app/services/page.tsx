@@ -40,7 +40,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="py-12 md:py-20">
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)]">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3">
             {packs.map((pack) => {
               const dark = pack.featured;
               const fg = dark ? "#fff" : "var(--text)";

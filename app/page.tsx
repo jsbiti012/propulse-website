@@ -164,7 +164,7 @@ export default function Home() {
             </Link>
           </FadeUp>
 
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)]">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3">
             {packs.map((pack) => {
               const dark = pack.featured;
               const fg = dark ? "#fff" : "var(--text)";
