@@ -41,31 +41,50 @@ export default function ServicesPage() {
         </div>
         <div className="py-12 md:py-20">
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)]">
-            {packs.map((pack) => {
+            {packs.map((pack, idx) => {
               const dark = pack.featured;
               const fg = dark ? "#fff" : "var(--text)";
               const muted = dark ? "rgba(255,255,255,0.55)" : "var(--muted)";
-              const hairline = dark ? "rgba(255,255,255,0.14)" : "var(--border)";
+              const hairline = dark ? "rgba(255,255,255,0.16)" : "var(--border)";
+              const n = String(idx + 1).padStart(2, "0");
               return (
-                <StaggerItem key={pack.name}>
+                <StaggerItem key={pack.name} className={dark ? "md:relative md:z-10" : ""}>
                   <div
-                    className={`h-full flex flex-col p-8 relative ${dark ? "texture-v" : ""}`}
+                    className={`h-full flex flex-col p-8 pt-12 relative overflow-hidden ${
+                      dark ? "texture-v md:scale-[1.03]" : ""
+                    }`}
                     style={{ background: dark ? "var(--dark)" : "var(--bg)" }}
                   >
+                    {/* Popular top strip — inverted bar so the hero plan reads instantly */}
                     {pack.featured && (
-                      <span
-                        className="mono-label absolute top-8 right-8 px-2 py-1 border"
-                        style={{ borderColor: "rgba(255,255,255,0.4)", color: "#fff" }}
+                      <div
+                        className="absolute top-0 left-0 right-0 h-7 flex items-center justify-center z-[2]"
+                        style={{ background: "#fff" }}
                       >
-                        Populaire
-                      </span>
+                        <span className="mono-label" style={{ color: "var(--dark)" }}>
+                          Populaire
+                        </span>
+                      </div>
                     )}
-                    <p className="mono-label" style={{ color: muted }}>{pack.name}</p>
-                    <h3 className="display text-2xl mt-4" style={{ color: fg }}>{pack.tagline}</h3>
-                    <p className="text-sm leading-relaxed mt-3" style={{ color: muted }}>{pack.desc}</p>
 
-                    {/* Price */}
-                    <div className="mt-7 pt-7 border-t" style={{ borderColor: hairline }}>
+                    {/* Oversized index numeral — editorial watermark */}
+                    <span
+                      aria-hidden
+                      className="display absolute top-9 right-5 pointer-events-none select-none leading-none"
+                      style={{ fontSize: "4.5rem", color: fg, opacity: dark ? 0.1 : 0.06 }}
+                    >
+                      {n}
+                    </span>
+
+                    {/* Header zone */}
+                    <div className="relative z-[1]">
+                      <p className="mono-label" style={{ color: muted }}>{pack.name}</p>
+                      <h3 className="display text-2xl mt-3" style={{ color: fg }}>{pack.tagline}</h3>
+                      <p className="text-sm leading-relaxed mt-3" style={{ color: muted }}>{pack.desc}</p>
+                    </div>
+
+                    {/* Price zone */}
+                    <div className="relative z-[1] mt-7 pt-7 border-t" style={{ borderColor: hairline }}>
                       <p className="display text-5xl" style={{ color: fg }}>
                         {pack.price}
                         <span className="text-lg font-bold ml-1" style={{ color: muted }}>DH</span>
@@ -79,8 +98,8 @@ export default function ServicesPage() {
                       )}
                     </div>
 
-                    {/* Features */}
-                    <ul className="flex flex-col gap-3 mt-7 flex-1">
+                    {/* Features zone */}
+                    <ul className="relative z-[1] flex flex-col gap-3 mt-7 pt-7 flex-1 border-t" style={{ borderColor: hairline }}>
                       {pack.features.map((f) => (
                         <li key={f} className="flex items-start gap-3 text-sm" style={{ color: fg }}>
                           <Check size={15} strokeWidth={2} className="shrink-0 mt-0.5" style={{ color: muted }} />
@@ -89,9 +108,10 @@ export default function ServicesPage() {
                       ))}
                     </ul>
 
+                    {/* CTA zone */}
                     <Link
                       href="/contact"
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-xs font-medium uppercase tracking-widest mt-8 transition-colors"
+                      className="relative z-[1] inline-flex items-center justify-center gap-2 px-5 py-3.5 text-xs font-medium uppercase tracking-widest mt-8 transition-colors"
                       style={dark ? { background: "#fff", color: "var(--dark)" } : { background: "var(--text)", color: "var(--bg)" }}
                     >
                       {pack.ctaLabel} <ArrowRight size={14} />
