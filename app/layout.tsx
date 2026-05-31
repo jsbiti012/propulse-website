@@ -3,7 +3,6 @@ import { Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Wordmark from "@/components/Wordmark";
 import siteData from "@/content/pages/site.json";
 
 const font = Bricolage_Grotesque({
@@ -43,7 +42,6 @@ export default function RootLayout({
       >
         <Navbar />
         <main className="flex-1">{children}</main>
-        <Wordmark />
         <Footer />
       </body>
     </html>
