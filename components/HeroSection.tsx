@@ -66,7 +66,7 @@ function FloatingPaths({ position }: { position: number }) {
 export default function HeroSection() {
   // Rotating business types — sharp vertical slide-swap
   const rotating = useMemo(
-    () => ["entreprise", "restaurant", "boutique", "salon", "café", "commerce"],
+    () => ["entreprise", "restaurant", "boutique", "salon", "agence", "commerce"],
     []
   );
   const [wordIndex, setWordIndex] = useState(0);
@@ -146,7 +146,7 @@ export default function HeroSection() {
                 slot auto-sizes to the widest word and the line never jitters or clips */}
             <span
               className="relative inline-grid overflow-hidden align-bottom text-left leading-[1.05]"
-              aria-label="entreprise, restaurant, boutique, salon, café, commerce"
+              aria-label="entreprise, restaurant, boutique, salon, agence, commerce"
             >
               {rotating.map((word, i) => (
                 <motion.span
