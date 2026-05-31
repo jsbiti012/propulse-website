@@ -13,7 +13,7 @@ const font = Bricolage_Grotesque({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://propulse.ma"),
-  title: siteData.metaTitle,
+  title: siteData.name,
   description: siteData.metaDescription,
   alternates: {
     canonical: "/",
