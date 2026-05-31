@@ -9,55 +9,30 @@ export default function ContactPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 70% 60% at 10% 50%, rgba(255,255,255,0.10) 0%, transparent 60%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 lg:py-32 relative">
-          <FadeUp className="max-w-2xl">
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ color: "rgba(255,255,255,0.65)" }}
-            >
-              {hero.label}
-            </p>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6"
-              style={{ color: "#ffffff" }}
-            >
-              {hero.headline}{" "}
-              <span className="gradient-text">{hero.headlineGradient}</span>
-            </h1>
-            <p className="text-lg leading-relaxed font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
-              {hero.subCopy}
-            </p>
-          </FadeUp>
-        </div>
+      <section className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-12 md:pb-16">
+        <FadeUp>
+          <span className="mono-label" style={{ color: "var(--muted)" }}>{hero.label}</span>
+          <h1 className="display text-5xl md:text-7xl xl:text-8xl mt-6 max-w-4xl" style={{ color: "var(--text)" }}>
+            {hero.headline} {hero.headlineGradient}
+          </h1>
+          <p className="mt-7 text-lg max-w-xl" style={{ color: "var(--muted)" }}>
+            {hero.subCopy}
+          </p>
+        </FadeUp>
       </section>
 
       {/* Form + sidebar */}
-      <section style={{ background: "var(--surface)" }}>
-        <div className="mx-auto max-w-6xl px-6 py-12 lg:py-20">
-          <ContactForm
-            formPackOptions={formPackOptions}
-            nextSteps={nextSteps}
-            email={siteData.email}
-            location={siteData.location}
-            locationNote={siteData.locationNote}
-          />
+      <section className="mx-auto max-w-6xl px-6 pb-20 md:pb-28">
+        <div className="rule pt-4 mb-12">
+          <span className="mono-label" style={{ color: "var(--text)" }}>Le formulaire</span>
         </div>
+        <ContactForm
+          formPackOptions={formPackOptions}
+          nextSteps={nextSteps}
+          email={siteData.email}
+          location={siteData.location}
+          locationNote={siteData.locationNote}
+        />
       </section>
     </>
   );

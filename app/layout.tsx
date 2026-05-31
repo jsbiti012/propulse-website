@@ -1,14 +1,21 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import siteData from "@/content/pages/site.json";
 
-const font = Geist({
+const font = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-main",
   display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +42,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" className={`${font.variable} h-full`}>
+    <html lang="fr" className={`${font.variable} ${mono.variable} h-full`}>
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: "var(--font-main), system-ui, sans-serif" }}

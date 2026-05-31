@@ -25,49 +25,41 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="sticky top-0 z-50 w-full transition-all duration-300"
+      className="sticky top-0 z-50 w-full"
       style={{
-        background: "#0A0A0A",
-        borderBottom: scrolled
-          ? "1px solid rgba(255,255,255,0.08)"
-          : "1px solid transparent",
+        background: "var(--bg)",
+        borderBottom: `1px solid ${scrolled ? "var(--line)" : "var(--border)"}`,
       }}
     >
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-0 group">
           <Logo
-            size={48}
+            size={44}
             className="transition-transform group-hover:scale-105 -mr-2"
+            style={{ filter: "brightness(0)" }}
           />
-          <span
-            className="text-lg font-extrabold tracking-tight"
-            style={{ color: "#ffffff" }}
-          >
+          <span className="text-lg font-extrabold tracking-tight" style={{ color: "var(--text)" }}>
             {siteData.name}
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1">
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className="relative px-4 py-2 text-sm font-semibold rounded-lg transition-colors"
-                style={{ color: active ? "#ffffff" : "rgba(255,255,255,0.5)" }}
+                className="text-xs font-medium uppercase tracking-widest transition-colors"
+                style={{
+                  color: active ? "var(--text)" : "var(--muted)",
+                  borderBottom: active ? "1px solid var(--text)" : "1px solid transparent",
+                  paddingBottom: 2,
+                }}
               >
-                {active && (
-                  <motion.span
-                    layoutId="nav-pill"
-                    className="absolute inset-0 rounded-lg"
-                    style={{ background: "rgba(255,255,255,0.14)" }}
-                    transition={{ type: "spring", stiffness: 400, damping: 35 }}
-                  />
-                )}
-                <span className="relative z-10">{label}</span>
+                {label}
               </Link>
             );
           })}
@@ -76,12 +68,8 @@ export default function Navbar() {
         {/* CTA */}
         <Link
           href={navCta.href}
-          className="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-bold rounded-full transition-all hover:scale-105 hover:shadow-lg"
-          style={{
-            background: "#FFFFFF",
-            color: "var(--dark)",
-            boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
-          }}
+          className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium uppercase tracking-widest border transition-colors duration-100 hover:bg-[var(--bg)] hover:text-[var(--text)]"
+          style={{ background: "var(--text)", color: "var(--bg)", borderColor: "var(--text)" }}
         >
           {navCta.label}
         </Link>
@@ -89,8 +77,8 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden p-2 rounded-lg transition-colors"
-          style={{ color: "#ffffff" }}
+          className="md:hidden p-2"
+          style={{ color: "var(--text)" }}
           aria-label="Menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
@@ -106,25 +94,18 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
             className="md:hidden overflow-hidden border-t"
-            style={{
-              borderColor: "rgba(255,255,255,0.08)",
-              background: "#0A0A0A",
-            }}
+            style={{ borderColor: "var(--line)", background: "var(--bg)" }}
           >
-            <div className="px-6 py-4 flex flex-col gap-1">
+            <div className="px-6 py-4 flex flex-col">
               {navLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
                   onClick={() => setOpen(false)}
-                  className="px-4 py-2.5 rounded-lg text-sm font-semibold"
+                  className="py-3 text-xs font-medium uppercase tracking-widest border-b"
                   style={{
-                    color:
-                      pathname === href ? "#fff" : "rgba(255,255,255,0.55)",
-                    background:
-                      pathname === href
-                        ? "rgba(255,255,255,0.14)"
-                        : "transparent",
+                    color: pathname === href ? "var(--text)" : "var(--muted)",
+                    borderColor: "var(--border)",
                   }}
                 >
                   {label}
@@ -133,8 +114,8 @@ export default function Navbar() {
               <Link
                 href={navCta.href}
                 onClick={() => setOpen(false)}
-                className="mt-3 flex items-center justify-center px-5 py-3 text-sm font-bold rounded-full"
-                style={{ background: "#FFFFFF", color: "var(--dark)" }}
+                className="mt-5 flex items-center justify-center px-5 py-3.5 text-xs font-medium uppercase tracking-widest"
+                style={{ background: "var(--text)", color: "var(--bg)" }}
               >
                 {navCta.label}
               </Link>

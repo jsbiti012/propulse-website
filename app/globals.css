@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #FFFFFF;
-  --surface: #F7F6F3;
-  --surface-2: #F2F1ED;
-  --border: #E6E4DE;
-  --text: #0A0A0A;
-  --muted: #6E6E6E;
-  --accent: #0A0A0A;
-  --accent-light: #F2F1ED;
-  --accent-2: #0A0A0A;
-  --dark: #0A0A0A;
+  --bg: #FFFFFF;          /* pure white */
+  --surface: #F5F5F5;     /* off-white muted */
+  --surface-2: #F5F5F5;
+  --border: #E5E5E5;      /* light hairline */
+  --line: #000000;        /* black borders / rules */
+  --text: #000000;        /* pure black */
+  --muted: #525252;       /* secondary text */
+  --accent: #000000;      /* black IS the accent */
+  --accent-light: #F5F5F5;
+  --accent-2: #000000;
+  --dark: #000000;        /* pure black */
 }
 
 * {
@@ -114,11 +115,141 @@ body {
   -webkit-text-fill-color: currentColor;
 }
 
-/* Tracked-out uppercase micro-label (AIR-style detail) */
+/* Tracked-out uppercase micro-label */
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-weight: 600;
+}
+
+/* Monospace micro-label — section eyebrows & meta (editorial Monochrome detail) */
+.mono-label {
+  font-family: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* Big editorial display headings (Bricolage Grotesque) */
+.display {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+}
+
+/* Full-width section rule with a label pinned to its left edge */
+.rule {
+  border-top: 1px solid var(--line);
+}
+
+/* Editorial drop-cap: bordered square initial */
+.dropcap::first-letter {
+  float: left;
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 0.8;
+  padding: 0.12em 0.16em;
+  margin: 0.05em 0.5rem 0 0;
+  border: 1px solid var(--line);
+}
+
+/* Link underline-on-hover for editorial nav/meta links */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.3s ease;
+}
+.link-underline:hover { background-size: 100% 1px; }
+
+/* ── Textures (required by the design system — prevents flat design) ── */
+
+/* Global paper-like horizontal-line texture, extremely subtle */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 1px,
+    #000 1px,
+    #000 2px
+  );
+  background-size: 100% 4px;
+  opacity: 0.015;
+}
+
+/* Vertical-line texture for inverted (black) sections */
+.texture-v {
+  position: relative;
+}
+.texture-v::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 1px,
+    #fff 1px,
+    #fff 2px
+  );
+  background-size: 4px 100%;
+  opacity: 0.03;
+}
+
+/* Radial glow for the final dark CTA */
+.texture-radial {
+  position: relative;
+}
+.texture-radial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at top center, #ffffff, transparent 70%);
+  opacity: 0.06;
+}
+
+/* keep real content above the global texture layer */
+body > * { position: relative; z-index: 1; }
+
+/* ── Hover inversion (signature interaction) ── */
+.invert-card {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--border);
+  transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.invert-card:hover {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+/* children inherit the (inverting) color; muted text dims via opacity so it inverts too */
+.invert-card :where(h3, p, span, svg, li, ul) { color: inherit; }
+.invert-card .dim { opacity: 0.6; }
+.invert-card hr,
+.invert-card .divider { border-color: currentColor; opacity: 0.18; }
+
+/* ── Focus states (accessibility — pure black, no colored ring) ── */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 3px;
+}
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
 }
 
 /* Pulse ring animation for timeline circles */

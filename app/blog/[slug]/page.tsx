@@ -43,100 +43,58 @@ export default async function PostPage({
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,255,255,0.08) 0%, transparent 60%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
-        <div className="mx-auto max-w-3xl px-6 py-16 md:py-24 relative">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold mb-10 transition-opacity hover:opacity-70"
-            style={{ color: "rgba(255,255,255,0.45)" }}
-          >
-            <ArrowLeft size={15} />
-            Retour au blog
-          </Link>
+      <section className="mx-auto max-w-3xl px-6 pt-24 md:pt-28 pb-10">
+        <Link
+          href="/blog"
+          className="link-underline inline-flex items-center gap-2 mono-label mb-12"
+          style={{ color: "var(--muted)" }}
+        >
+          <ArrowLeft size={13} />
+          Retour au blog
+        </Link>
 
-          <div className="flex flex-wrap items-center gap-2 mb-6">
-            <span
-              className="text-xs font-bold px-3 py-1.5 rounded-full"
-              style={{ background: "rgba(255,255,255,0.12)", color: "rgba(255,255,255,0.8)" }}
-            >
-              {post.category}
+        <div className="flex flex-wrap items-center gap-4 mb-8">
+          <span className="mono-label px-2 py-1 border" style={{ borderColor: "var(--line)", color: "var(--text)" }}>
+            {post.category}
+          </span>
+          <span className="mono-label flex items-center gap-1.5" style={{ color: "var(--muted)" }}>
+            <Calendar size={12} strokeWidth={1.5} />
+            {formatDate(post.date)}
+          </span>
+          {post.readTime && (
+            <span className="mono-label flex items-center gap-1.5" style={{ color: "var(--muted)" }}>
+              <Clock size={12} strokeWidth={1.5} />
+              {post.readTime}
             </span>
-            <span
-              className="flex items-center gap-1.5 text-xs font-medium"
-              style={{ color: "rgba(255,255,255,0.35)" }}
-            >
-              <Calendar size={12} />
-              {formatDate(post.date)}
-            </span>
-            {post.readTime && (
-              <span
-                className="flex items-center gap-1.5 text-xs font-medium"
-                style={{ color: "rgba(255,255,255,0.35)" }}
-              >
-                <Clock size={12} />
-                {post.readTime}
-              </span>
-            )}
-          </div>
-
-          <h1
-            className="text-3xl md:text-5xl font-extrabold tracking-tight leading-[1.1] mb-5"
-            style={{ color: "#ffffff" }}
-          >
-            {post.title}
-          </h1>
-          <p className="text-lg leading-relaxed font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
-            {post.description}
-          </p>
+          )}
         </div>
+
+        <h1 className="display text-4xl md:text-6xl mb-6" style={{ color: "var(--text)" }}>
+          {post.title}
+        </h1>
+        <p className="text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
+          {post.description}
+        </p>
       </section>
 
+      <div className="mx-auto max-w-3xl px-6">
+        <div className="rule" />
+      </div>
+
       {/* Content */}
-      <section className="mx-auto max-w-3xl px-6 py-16">
+      <section className="mx-auto max-w-3xl px-6 py-14">
         <div className="prose">
           <MDXRemote source={post.content} />
         </div>
 
         {/* Footer CTA */}
-        <div
-          className="mt-16 pt-10 border-t rounded-2xl p-8"
-          style={{
-            borderColor: "var(--border)",
-            background: "var(--accent-light)",
-          }}
-        >
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-2"
-            style={{ color: "var(--accent)" }}
-          >
-            {blogPostCta.label}
-          </p>
-          <p className="text-base font-semibold mb-5" style={{ color: "var(--text)" }}>
-            {blogPostCta.headline}
-          </p>
+        <div className="mt-16 border p-8" style={{ borderColor: "var(--line)", background: "var(--surface)" }}>
+          <p className="mono-label mb-3" style={{ color: "var(--muted)" }}>{blogPostCta.label}</p>
+          <p className="display text-2xl mb-6" style={{ color: "var(--text)" }}>{blogPostCta.headline}</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-5 py-3 text-sm font-bold rounded-full transition-all hover:scale-105"
-            style={{
-              background: "var(--accent)",
-              color: "#fff",
-              boxShadow: "0 6px 20px rgba(0,0,0,0.2)",
-            }}
+            className="inline-flex items-center gap-2 px-7 py-3.5 text-xs font-medium uppercase tracking-widest border transition-colors duration-100 hover:bg-[var(--bg)] hover:text-[var(--text)]"
+            style={{ background: "var(--text)", color: "var(--bg)", borderColor: "var(--text)" }}
           >
             {blogPostCta.ctaLabel}
           </Link>

@@ -8,44 +8,30 @@ import siteData from "@/content/pages/site.json";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "var(--dark)", color: "#fff" }}>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-12 md:pt-16 pb-8 md:pb-10">
+    <footer style={{ background: "var(--bg)", color: "var(--text)", borderTop: "1px solid var(--line)" }}>
+      <div className="mx-auto max-w-6xl px-6 pt-16 pb-10">
         <div className="flex flex-col md:flex-row items-start justify-between gap-12">
 
           {/* ── Brand column ── */}
           <div className="max-w-xs">
             <div className="flex items-center gap-0 mb-4">
-              <Logo size={48} className="-mr-2" />
+              <Logo size={44} className="-mr-2" style={{ filter: "brightness(0)" }} />
               <span className="text-lg font-extrabold tracking-tight">{siteData.name}</span>
             </div>
-            <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
               {siteData.tagline}
             </p>
-            {/* Social icons */}
-            <div className="flex items-center gap-3">
+            {/* Social icons — sharp squares, invert on hover */}
+            <div className="flex items-center gap-2">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
-                  className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
-                  style={{
-                    background: "rgba(255,255,255,0.07)",
-                    border: "1px solid rgba(255,255,255,0.1)",
-                    color: "rgba(255,255,255,0.55)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.18)";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "#fff";
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.07)";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.55)";
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
-                  }}
+                  className="w-10 h-10 flex items-center justify-center border transition-colors duration-100 hover:bg-[var(--text)] hover:text-[var(--bg)]"
+                  style={{ borderColor: "var(--line)", color: "var(--text)" }}
                 >
-                  <Icon size={15} />
+                  <Icon size={15} strokeWidth={1.5} />
                 </a>
               ))}
             </div>
@@ -53,74 +39,50 @@ export default function Footer() {
 
           {/* ── Link columns ── */}
           <nav className="flex flex-col sm:flex-row gap-10">
-            {/* Navigation */}
-            <div className="flex flex-col gap-3">
-              <span
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "rgba(255,255,255,0.35)" }}
-              >
-                Navigation
-              </span>
+            <div className="flex flex-col gap-4">
+              <span className="mono-label" style={{ color: "var(--muted)" }}>Navigation</span>
               {navLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm font-medium transition-colors hover:text-white"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
+                  className="link-underline text-sm font-medium w-fit"
+                  style={{ color: "var(--text)" }}
                 >
                   {label}
                 </Link>
               ))}
             </div>
 
-            {/* Contact */}
-            <div className="flex flex-col gap-3">
-              <span
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "rgba(255,255,255,0.35)" }}
-              >
-                Contact
-              </span>
+            <div className="flex flex-col gap-4">
+              <span className="mono-label" style={{ color: "var(--muted)" }}>Contact</span>
               <a
                 href={`mailto:${siteData.email}`}
-                className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-white"
-                style={{ color: "rgba(255,255,255,0.55)" }}
+                className="link-underline flex items-center gap-2 text-sm font-medium w-fit"
+                style={{ color: "var(--text)" }}
               >
-                <Mail size={13} style={{ color: "rgba(255,255,255,0.35)" }} />
+                <Mail size={13} strokeWidth={1.5} style={{ color: "var(--muted)" }} />
                 {siteData.email}
               </a>
-              <span
-                className="flex items-center gap-2 text-sm font-medium"
-                style={{ color: "rgba(255,255,255,0.55)" }}
-              >
-                <MapPin size={13} style={{ color: "rgba(255,255,255,0.35)" }} />
+              <span className="flex items-center gap-2 text-sm font-medium" style={{ color: "var(--text)" }}>
+                <MapPin size={13} strokeWidth={1.5} style={{ color: "var(--muted)" }} />
                 {siteData.location}
               </span>
             </div>
 
-            {/* CTA */}
-            <div className="flex flex-col gap-3">
-              <span
-                className="text-xs font-bold uppercase tracking-widest"
-                style={{ color: "rgba(255,255,255,0.35)" }}
-              >
-                Commencer
-              </span>
+            <div className="flex flex-col gap-4">
+              <span className="mono-label" style={{ color: "var(--muted)" }}>Commencer</span>
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 text-sm font-bold transition-colors hover:text-white"
-                style={{ color: "rgba(255,255,255,0.55)" }}
+                className="link-underline inline-flex items-center gap-2 text-sm font-semibold w-fit"
+                style={{ color: "var(--text)" }}
               >
                 Contactez-nous maintenant
-                <ArrowRight
-                  size={14}
-                  className="transition-transform duration-200 group-hover:translate-x-1"
-                />
+                <ArrowRight size={14} />
               </Link>
               <Link
                 href="/services"
-                className="text-sm font-medium transition-colors hover:text-white"
-                style={{ color: "rgba(255,255,255,0.55)" }}
+                className="link-underline text-sm font-medium w-fit"
+                style={{ color: "var(--text)" }}
               >
                 Voir nos formules
               </Link>
@@ -130,13 +92,13 @@ export default function Footer() {
 
         {/* ── Bottom bar ── */}
         <div
-          className="mt-10 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
-          style={{ borderColor: "rgba(255,255,255,0.08)" }}
+          className="mt-14 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-3"
+          style={{ borderColor: "var(--border)" }}
         >
-          <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="mono-label" style={{ color: "var(--muted)" }}>
             © {new Date().getFullYear()} {siteData.name}. Tous droits réservés.
           </p>
-          <p className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
+          <p className="mono-label" style={{ color: "var(--muted)" }}>
             {siteData.footerMadeWith}
           </p>
         </div>

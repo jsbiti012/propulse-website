@@ -4,7 +4,6 @@ import {
   FadeUp,
   StaggerGrid,
   StaggerItem,
-  ScaleOnHover,
   CounterUp,
 } from "@/components/Animate";
 import HeroSection from "@/components/HeroSection";
@@ -17,367 +16,232 @@ const STAT_ICONS = [Clock, Layers, Star];
 const STEP_ICONS = [Phone, Code2, Globe];
 const WHY_US_ICONS = [Zap, Shield, Users, CheckCircle];
 
+function SectionLabel({ label, index }: { label: string; index?: string }) {
+  return (
+    <div className="rule pt-4 flex items-center justify-between">
+      <span className="mono-label" style={{ color: "var(--text)" }}>
+        {label}
+      </span>
+      {index && (
+        <span className="mono-label" style={{ color: "var(--muted)" }}>
+          {index}
+        </span>
+      )}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
       {/* ── Hero ── */}
       <HeroSection />
 
-      {/* ── Stats band ── */}
-      <section style={{ background: "var(--dark)" }}>
-        <div className="mx-auto max-w-6xl px-6 py-10 md:py-16">
-          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      {/* ── Stats — full-bleed black band ── */}
+      <section className="texture-v" style={{ background: "var(--dark)" }}>
+        <div className="relative z-[1] mx-auto max-w-6xl px-6">
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-3">
             {statsData.map(({ value, label }, idx) => {
               const Icon = STAT_ICONS[idx];
               return (
-              <StaggerItem key={value}>
-                <div
-                  className="flex flex-col items-center text-center gap-4 rounded-2xl px-5 py-7 sm:px-8 sm:py-9 backdrop-blur-md"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                  }}
-                >
-                  {/* Glowing icon */}
+                <StaggerItem key={value}>
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center"
-                    style={{
-                      background: "rgba(255,255,255,0.08)",
-                      boxShadow: "0 0 18px rgba(255,255,255,0.10)",
-                    }}
+                    className="px-2 sm:px-8 py-12 sm:py-16 flex flex-col gap-4 border-t sm:border-t-0 sm:border-l first:border-t-0 first:sm:border-l-0"
+                    style={{ borderColor: "rgba(255,255,255,0.14)" }}
                   >
-                    <Icon size={22} style={{ color: "#FFFFFF" }} />
+                    <Icon size={18} style={{ color: "rgba(255,255,255,0.6)" }} />
+                    <p className="display text-5xl md:text-6xl" style={{ color: "#fff" }}>
+                      <CounterUp value={value} />
+                    </p>
+                    <p className="mono-label" style={{ color: "rgba(255,255,255,0.5)" }}>
+                      {label}
+                    </p>
                   </div>
-                  {/* Number */}
-                  <p className="text-4xl md:text-5xl font-extrabold tracking-tight" style={{ color: "#FFFFFF" }}>
-                    <CounterUp value={value} />
-                  </p>
-                  {/* Label */}
-                  <p className="text-sm font-medium leading-snug" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    {label}
-                  </p>
-                </div>
-              </StaggerItem>
+                </StaggerItem>
               );
             })}
           </StaggerGrid>
         </div>
-
       </section>
 
-      {/* ── Comment ça marche ── */}
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-28">
-        <FadeUp className="mb-10 md:mb-16 text-center">
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-4"
-            style={{ color: "var(--accent)" }}
-          >
-            Le processus
-          </p>
-          <h2
-            className="text-4xl md:text-5xl font-extrabold tracking-tight"
-            style={{ color: "var(--text)" }}
-          >
-            Comment{" "}
-            <span className="gradient-text">ça marche</span>
-          </h2>
-          <p
-            className="mt-4 text-base font-medium max-w-lg mx-auto"
-            style={{ color: "var(--muted)" }}
-          >
-            De la prise de contact à la mise en ligne, on vous accompagne à chaque étape.
-          </p>
+      {/* ── Process ── */}
+      <section className="mx-auto max-w-6xl px-6">
+        <FadeUp>
+          <SectionLabel label="Le processus" index="01 / 03" />
         </FadeUp>
+        <div className="py-12 md:py-20">
+          <FadeUp>
+            <h2 className="display text-4xl md:text-6xl max-w-2xl" style={{ color: "var(--text)" }}>
+              Comment ça marche
+            </h2>
+            <p className="mt-5 text-base max-w-lg" style={{ color: "var(--muted)" }}>
+              De la prise de contact à la mise en ligne, on vous accompagne à chaque étape.
+            </p>
+          </FadeUp>
 
-        <div className="relative">
-          {/* Desktop connecting line — gradient */}
-          <div
-            className="hidden md:block absolute h-px"
-            style={{
-              top: 22,
-              left: "calc(100% / 6)",
-              right: "calc(100% / 6)",
-              background:
-                "linear-gradient(90deg, transparent, rgba(10,10,10,0.18) 20%, rgba(10,10,10,0.18) 80%, transparent)",
-            }}
-          />
-
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-px mt-14 bg-[var(--border)]">
             {stepsData.map(({ num, title, desc }, idx) => {
               const Icon = STEP_ICONS[idx];
               return (
-              <StaggerItem key={num}>
-                <div className="flex md:flex-col items-start md:items-center gap-5 md:gap-5 md:text-center">
-                  {/* Circle with pulse ring */}
-                  <div className="relative shrink-0 flex items-center justify-center" style={{ width: 44, height: 44 }}>
-                    {/* Pulse ring */}
-                    <div
-                      className="absolute rounded-full animate-pulse-ring"
-                      style={{
-                        width: 44,
-                        height: 44,
-                        background: "rgba(10,10,10,0.12)",
-                      }}
-                    />
-                    {/* Circle */}
-                    <div
-                      className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center font-extrabold text-sm"
-                      style={{
-                        background: "var(--accent)",
-                        color: "#fff",
-                        boxShadow: "0 4px 14px rgba(0,0,0,0.25), 0 0 0 3px var(--bg), 0 0 0 4.5px rgba(10,10,10,0.12)",
-                      }}
-                    >
-                      {num}
+                <StaggerItem key={num}>
+                  <div className="invert-card h-full flex flex-col gap-5 p-8">
+                    <div className="flex items-center justify-between">
+                      <span className="display text-3xl">{num}</span>
+                      <div
+                        className="w-10 h-10 flex items-center justify-center border"
+                        style={{ borderColor: "currentColor" }}
+                      >
+                        <Icon size={18} strokeWidth={1.5} />
+                      </div>
                     </div>
+                    <h3 className="text-lg font-bold">{title}</h3>
+                    <p className="text-sm leading-relaxed dim">{desc}</p>
                   </div>
-
-                  <div>
-                    <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center mb-3 md:mx-auto"
-                      style={{ background: "var(--surface-2)" }}
-                    >
-                      <Icon size={16} style={{ color: "var(--accent)" }} />
-                    </div>
-                    <h3
-                      className="text-base font-bold mb-2"
-                      style={{ color: "var(--text)" }}
-                    >
-                      {title}
-                    </h3>
-                    <p
-                      className="text-sm leading-relaxed"
-                      style={{ color: "var(--muted)" }}
-                    >
-                      {desc}
-                    </p>
-                  </div>
-                </div>
-              </StaggerItem>
+                </StaggerItem>
               );
             })}
           </StaggerGrid>
         </div>
       </section>
 
-      {/* ── Why us ── */}
-      <section style={{ background: "var(--surface)" }}>
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-28">
-          <FadeUp className="mb-10 md:mb-16 text-center">
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-4"
-              style={{ color: "var(--accent)" }}
-            >
-              Pourquoi Propulse
-            </p>
-            <h2
-              className="text-4xl md:text-5xl font-extrabold tracking-tight"
-              style={{ color: "var(--text)" }}
-            >
-              Un partenaire local qui{" "}
-              <span className="gradient-text">comprend</span> vos besoins.
+      {/* ── Why us — feature grid ── */}
+      <section className="mx-auto max-w-6xl px-6">
+        <FadeUp>
+          <SectionLabel label="Pourquoi Propulse" index="02 / 03" />
+        </FadeUp>
+        <div className="py-12 md:py-20">
+          <FadeUp>
+            <h2 className="display text-4xl md:text-6xl max-w-3xl" style={{ color: "var(--text)" }}>
+              Un partenaire local qui comprend vos besoins.
             </h2>
           </FadeUp>
 
-          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-14 bg-[var(--border)]">
             {whyUsData.map(({ title, desc }, idx) => {
               const Icon = WHY_US_ICONS[idx];
+              const n = String(idx + 1).padStart(2, "0");
               return (
-              <StaggerItem key={title}>
-                <div
-                  className="rounded-2xl p-7 flex flex-col gap-4 h-full cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
-                  style={{
-                    background: "var(--bg)",
-                    border: "1px solid var(--border)",
-                  }}
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{
-                      background: "var(--surface-2)",
-                    }}
-                  >
-                    <Icon size={20} style={{ color: "var(--accent)" }} />
+                <StaggerItem key={title}>
+                  <div className="invert-card h-full flex flex-col gap-5 p-8">
+                    <div className="flex items-center justify-between">
+                      <div
+                        className="w-10 h-10 flex items-center justify-center border"
+                        style={{ borderColor: "currentColor" }}
+                      >
+                        <Icon size={18} strokeWidth={1.5} />
+                      </div>
+                      <span className="mono-label dim">{n}</span>
+                    </div>
+                    <h3 className="text-base font-bold">{title}</h3>
+                    <p className="text-sm leading-relaxed dim">{desc}</p>
                   </div>
-                  <h3
-                    className="text-sm font-bold"
-                    style={{ color: "var(--text)" }}
-                  >
-                    {title}
-                  </h3>
-                  <p
-                    className="text-sm leading-relaxed"
-                    style={{ color: "var(--muted)" }}
-                  >
-                    {desc}
-                  </p>
-                </div>
-              </StaggerItem>
+                </StaggerItem>
               );
             })}
           </StaggerGrid>
         </div>
       </section>
 
-      {/* ── Our packs ── */}
-      <section>
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-28">
-          <FadeUp className="mb-10 md:mb-16">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <div>
-                <p
-                  className="text-xs font-bold uppercase tracking-widest mb-4"
-                  style={{ color: "var(--accent)" }}
-                >
-                  Nos formules
-                </p>
-                <h2
-                  className="text-4xl md:text-5xl font-extrabold tracking-tight"
-                  style={{ color: "var(--text)" }}
-                >
-                  Une formule pour{" "}
-                  <span className="gradient-text">chaque besoin.</span>
-                </h2>
-              </div>
-              <Link
-                href="/services"
-                className="inline-flex items-center gap-2 text-sm font-bold shrink-0 transition-opacity hover:opacity-70"
-                style={{ color: "var(--accent)" }}
-              >
-                Voir le détail <ArrowRight size={15} />
-              </Link>
-            </div>
+      {/* ── Packs — editorial pricing ── */}
+      <section className="mx-auto max-w-6xl px-6">
+        <FadeUp>
+          <SectionLabel label="Nos formules" index="03 / 03" />
+        </FadeUp>
+        <div className="py-12 md:py-20">
+          <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+            <h2 className="display text-4xl md:text-6xl max-w-2xl" style={{ color: "var(--text)" }}>
+              Une formule pour chaque besoin.
+            </h2>
+            <Link
+              href="/services"
+              className="link-underline inline-flex items-center gap-2 text-sm font-semibold shrink-0"
+              style={{ color: "var(--text)" }}
+            >
+              Voir le détail <ArrowRight size={15} />
+            </Link>
           </FadeUp>
 
-          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {packs.map((pack) => (
-              <StaggerItem key={pack.name}>
-                <ScaleOnHover className="h-full">
+          <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)]">
+            {packs.map((pack) => {
+              const dark = pack.featured;
+              const fg = dark ? "#fff" : "var(--text)";
+              const muted = dark ? "rgba(255,255,255,0.55)" : "var(--muted)";
+              return (
+                <StaggerItem key={pack.name}>
                   <div
-                    className="rounded-2xl flex flex-col h-full relative overflow-hidden"
-                    style={{
-                      background: "var(--dark)",
-                      borderTop: "3px solid #FFFFFF",
-                    }}
+                    className="h-full flex flex-col p-8 relative"
+                    style={{ background: dark ? "var(--dark)" : "var(--bg)" }}
                   >
                     {pack.featured && (
-                      <div
-                        className="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full"
-                        style={{
-                          background: "#FFFFFF",
-                          color: "var(--dark)",
-                        }}
+                      <span
+                        className="mono-label absolute top-8 right-8 px-2 py-1 border"
+                        style={{ borderColor: "rgba(255,255,255,0.4)", color: "#fff" }}
                       >
                         Populaire
-                      </div>
+                      </span>
                     )}
+                    <p className="mono-label" style={{ color: muted }}>
+                      {pack.name}
+                    </p>
+                    <h3 className="display text-2xl mt-4" style={{ color: fg }}>
+                      {pack.tagline}
+                    </h3>
+                    <p className="text-sm leading-relaxed mt-3" style={{ color: muted }}>
+                      {pack.desc}
+                    </p>
 
-                    <div className="p-8 flex flex-col gap-5 flex-1">
-                      <div>
-                        <p
-                          className="text-xs font-bold uppercase tracking-widest mb-2"
-                          style={{ color: "rgba(255,255,255,0.6)" }}
+                    <ul className="flex flex-col gap-3 mt-8 flex-1">
+                      {pack.features.map((f) => (
+                        <li
+                          key={f}
+                          className="flex items-start gap-3 text-sm pt-3 border-t"
+                          style={{ color: fg, borderColor: dark ? "rgba(255,255,255,0.12)" : "var(--border)" }}
                         >
-                          {pack.name}
-                        </p>
-                        <h3
-                          className="text-xl font-extrabold mb-2"
-                          style={{ color: "#ffffff" }}
-                        >
-                          {pack.tagline}
-                        </h3>
-                        <p
-                          className="text-sm leading-relaxed"
-                          style={{ color: "rgba(255,255,255,0.45)" }}
-                        >
-                          {pack.desc}
-                        </p>
-                      </div>
+                          <ArrowRight size={14} className="shrink-0 mt-1" style={{ color: muted }} />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
 
-                      <ul className="flex flex-col gap-2.5 flex-1">
-                        {pack.features.map((f) => (
-                          <li
-                            key={f}
-                            className="flex items-start gap-2.5 text-sm"
-                            style={{ color: "rgba(255,255,255,0.7)" }}
-                          >
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              fill="none"
-                              className="shrink-0 mt-0.5"
-                            >
-                              <circle cx="8" cy="8" r="7" fill="#FFFFFF" fillOpacity="0.15" />
-                              <path
-                                d="M5 8l2 2 4-4"
-                                stroke="#FFFFFF"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              />
-                            </svg>
-                            {f}
-                          </li>
-                        ))}
-                      </ul>
-
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-bold rounded-full transition-all hover:opacity-90 mt-2"
-                        style={{
-                          background: "#FFFFFF",
-                          color: "var(--dark)",
-                        }}
-                      >
-                        Démarrer ce projet <ArrowRight size={15} />
-                      </Link>
-                    </div>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3.5 text-sm font-semibold mt-8 transition-colors"
+                      style={
+                        dark
+                          ? { background: "#fff", color: "var(--dark)" }
+                          : { background: "var(--text)", color: "var(--bg)" }
+                      }
+                    >
+                      Démarrer ce projet <ArrowRight size={15} />
+                    </Link>
                   </div>
-                </ScaleOnHover>
-              </StaggerItem>
-            ))}
+                </StaggerItem>
+              );
+            })}
           </StaggerGrid>
         </div>
       </section>
 
-      {/* ── CTA banner ── */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "var(--dark)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-25 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 70% 50%, #FFFFFF 0%, transparent 65%)",
-          }}
-        />
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 relative">
-          <FadeUp className="text-center max-w-3xl mx-auto">
+      {/* ── CTA — full-bleed black band ── */}
+      <section className="texture-radial" style={{ background: "var(--dark)" }}>
+        <div className="relative z-[1] mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <FadeUp className="max-w-4xl">
             <h2
-              className="text-3xl md:text-4xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.05]"
+              className="display text-4xl md:text-6xl lg:text-7xl"
               style={{ color: "#fff" }}
             >
               {homeCta.headline}
             </h2>
-            <p
-              className="text-lg mb-10 font-medium"
-              style={{ color: "rgba(255,255,255,0.5)" }}
-            >
+            <p className="mt-6 text-lg max-w-xl" style={{ color: "rgba(255,255,255,0.55)" }}>
               {homeCta.subCopy}
             </p>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 text-sm font-bold rounded-full transition-all hover:scale-105"
-              style={{
-                background: "#fff",
-                color: "var(--dark)",
-                boxShadow: "0 8px 24px rgba(255,255,255,0.12)",
-              }}
+              className="group inline-flex items-center gap-2.5 px-8 py-4 text-sm font-semibold mt-10 transition-transform hover:translate-x-1"
+              style={{ background: "#fff", color: "var(--dark)" }}
             >
               {homeCta.ctaLabel}
-              <ArrowRight size={17} className="transition-transform duration-200 group-hover:translate-x-1" />
+              <ArrowRight size={17} />
             </Link>
           </FadeUp>
         </div>

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/mdx";
-import { ArrowRight, Calendar, Clock } from "lucide-react";
-import { FadeUp, StaggerGrid, StaggerItem, ScaleOnHover } from "@/components/Animate";
+import { ArrowRight, Clock } from "lucide-react";
+import { FadeUp, StaggerGrid, StaggerItem } from "@/components/Animate";
 import { blogPage } from "@/content.config";
 
 export const metadata = {
@@ -17,17 +17,6 @@ function formatDate(dateStr: string) {
   });
 }
 
-const categoryColors: Record<string, { bg: string; color: string }> = {
-  Conseils: { bg: "#F2F1ED", color: "#0A0A0A" },
-  SEO: { bg: "#F2F1ED", color: "#0A0A0A" },
-  Design: { bg: "#F2F1ED", color: "#0A0A0A" },
-  Marketing: { bg: "#F2F1ED", color: "#0A0A0A" },
-};
-
-function getCategoryStyle(category: string) {
-  return categoryColors[category] ?? { bg: "var(--surface)", color: "var(--muted)" };
-}
-
 export default function BlogPage() {
   const posts = getAllPosts();
   const { hero, emptyState, cta } = blogPage;
@@ -35,147 +24,75 @@ export default function BlogPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative overflow-hidden" style={{ background: "#0A0A0A" }}>
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 60% at 85% 20%, rgba(255,255,255,0.08) 0%, transparent 55%)",
-          }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "64px 64px",
-          }}
-        />
-        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24 lg:py-36 relative">
-          <FadeUp className="max-w-2xl">
-            <p
-              className="text-xs font-bold uppercase tracking-widest mb-5"
-              style={{ color: "rgba(255,255,255,0.65)" }}
-            >
-              {hero.label}
-            </p>
-            <h1
-              className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6"
-              style={{ color: "#ffffff" }}
-            >
-              {hero.headline}{" "}
-              <span className="gradient-text">{hero.headlineGradient}</span>
-            </h1>
-            <p className="text-lg leading-relaxed font-medium" style={{ color: "rgba(255,255,255,0.5)" }}>
-              {hero.subCopy}
-            </p>
-          </FadeUp>
-        </div>
+      <section className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-12 md:pb-16">
+        <FadeUp>
+          <span className="mono-label" style={{ color: "var(--muted)" }}>{hero.label}</span>
+          <h1 className="display text-5xl md:text-7xl xl:text-8xl mt-6 max-w-4xl" style={{ color: "var(--text)" }}>
+            {hero.headline} {hero.headlineGradient}
+          </h1>
+          <p className="mt-7 text-lg max-w-xl" style={{ color: "var(--muted)" }}>{hero.subCopy}</p>
+        </FadeUp>
       </section>
 
       {/* Posts */}
-      <section style={{ background: "var(--surface)" }}>
-        <div className="mx-auto max-w-6xl px-6 py-14 md:py-24">
+      <section className="mx-auto max-w-6xl px-6">
+        <FadeUp>
+          <div className="rule pt-4 flex items-center justify-between">
+            <span className="mono-label" style={{ color: "var(--text)" }}>Journal</span>
+            <span className="mono-label" style={{ color: "var(--muted)" }}>
+              {posts.length} article{posts.length > 1 ? "s" : ""}
+            </span>
+          </div>
+        </FadeUp>
+
+        <div className="py-12 md:py-20">
           {posts.length === 0 ? (
-            <FadeUp className="text-center py-20">
-              <p className="text-xl font-extrabold mb-2" style={{ color: "var(--text)" }}>
-                {emptyState.title}
-              </p>
-              <p className="text-sm" style={{ color: "var(--muted)" }}>
-                {emptyState.subtitle}
-              </p>
+            <FadeUp className="py-20">
+              <p className="display text-3xl mb-2" style={{ color: "var(--text)" }}>{emptyState.title}</p>
+              <p className="text-sm" style={{ color: "var(--muted)" }}>{emptyState.subtitle}</p>
             </FadeUp>
           ) : (
-            <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post) => {
-                const catStyle = getCategoryStyle(post.category);
-                return (
-                  <StaggerItem key={post.slug}>
-                    <ScaleOnHover className="h-full">
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="rounded-2xl p-7 flex flex-col gap-5 h-full transition-shadow hover:shadow-lg"
-                        style={{ background: "#fff", border: "1px solid var(--border)" }}
-                      >
-                        <span
-                          className="inline-flex self-start text-xs font-bold px-3 py-1.5 rounded-full"
-                          style={{ background: catStyle.bg, color: catStyle.color }}
-                        >
-                          {post.category}
+            <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)]">
+              {posts.map((post) => (
+                <StaggerItem key={post.slug}>
+                  <Link href={`/blog/${post.slug}`} className="invert-card group h-full flex flex-col gap-5 p-8">
+                    <div className="flex items-center justify-between">
+                      <span className="mono-label">{post.category}</span>
+                      <span className="mono-label dim">{formatDate(post.date)}</span>
+                    </div>
+                    <h2 className="display text-2xl leading-tight flex-1">{post.title}</h2>
+                    <p className="text-sm leading-relaxed dim line-clamp-3">{post.description}</p>
+                    <div className="flex items-center justify-between pt-5 border-t" style={{ borderColor: "currentColor" }}>
+                      {post.readTime && (
+                        <span className="mono-label dim flex items-center gap-1.5">
+                          <Clock size={12} strokeWidth={1.5} />
+                          {post.readTime}
                         </span>
-
-                        <div className="flex-1">
-                          <h2
-                            className="text-base font-extrabold tracking-tight leading-snug mb-3"
-                            style={{ color: "var(--text)" }}
-                          >
-                            {post.title}
-                          </h2>
-                          <p
-                            className="text-sm leading-relaxed line-clamp-3 font-medium"
-                            style={{ color: "var(--muted)" }}
-                          >
-                            {post.description}
-                          </p>
-                        </div>
-
-                        <div
-                          className="flex items-center gap-4 pt-5 border-t text-xs font-medium"
-                          style={{ borderColor: "var(--border)", color: "var(--muted)" }}
-                        >
-                          <span className="flex items-center gap-1.5">
-                            <Calendar size={12} />
-                            {formatDate(post.date)}
-                          </span>
-                          {post.readTime && (
-                            <span className="flex items-center gap-1.5">
-                              <Clock size={12} />
-                              {post.readTime}
-                            </span>
-                          )}
-                        </div>
-                      </Link>
-                    </ScaleOnHover>
-                  </StaggerItem>
-                );
-              })}
+                      )}
+                      <span className="mono-label flex items-center gap-1.5">
+                        Lire <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </Link>
+                </StaggerItem>
+              ))}
             </StaggerGrid>
           )}
         </div>
       </section>
 
       {/* CTA */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: "var(--dark)" }}
-      >
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse at 70% 50%, #FFFFFF 0%, transparent 65%)",
-          }}
-        />
-        <div className="mx-auto max-w-6xl px-6 py-14 md:py-20 relative">
-          <FadeUp className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div>
-              <h2
-                className="text-2xl font-extrabold tracking-tight mb-2"
-                style={{ color: "#fff" }}
-              >
-                {cta.headline}
-              </h2>
-              <p className="text-sm font-medium" style={{ color: "rgba(255,255,255,0.55)" }}>
-                {cta.subCopy}
-              </p>
+      <section className="texture-radial" style={{ background: "var(--dark)" }}>
+        <div className="relative z-[1] mx-auto max-w-6xl px-6 py-20 md:py-28">
+          <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="display text-4xl md:text-6xl" style={{ color: "#fff" }}>{cta.headline}</h2>
+              <p className="mt-5 text-lg" style={{ color: "rgba(255,255,255,0.55)" }}>{cta.subCopy}</p>
             </div>
             <Link
               href="/contact"
-              className="shrink-0 inline-flex items-center gap-2.5 px-7 py-4 text-sm font-bold rounded-full transition-all hover:scale-105"
-              style={{
-                background: "#fff",
-                color: "var(--dark)",
-                boxShadow: "0 8px 24px rgba(255,255,255,0.1)",
-              }}
+              className="shrink-0 inline-flex items-center gap-2.5 px-8 py-4 text-xs font-medium uppercase tracking-widest transition-transform hover:translate-x-1"
+              style={{ background: "#fff", color: "var(--dark)" }}
             >
               {cta.ctaLabel} <ArrowRight size={15} />
             </Link>
