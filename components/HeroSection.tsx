@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import homeData from "@/content/pages/home.json";
 
 const hero = homeData.hero;
@@ -210,24 +210,6 @@ export default function HeroSection() {
           </div>
         </Reveal>
       </div>
-
-      {/* Bottom rule + trust micro-label */}
-      <Reveal delay={0.85} className="relative z-10 w-full max-w-5xl mx-auto mt-16">
-        <div className="rule pt-5 flex items-center justify-between">
-          <span className="mono-label" style={{ color: "var(--muted)" }}>
-            {hero.trustText}
-          </span>
-          <span className="mono-label hidden sm:flex items-center gap-2" style={{ color: "var(--muted)" }}>
-            {hero.scrollLabel}
-            <motion.span
-              animate={{ y: [0, 4, 0] }}
-              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <ChevronDown size={13} />
-            </motion.span>
-          </span>
-        </div>
-      </Reveal>
     </section>
   );
 }
