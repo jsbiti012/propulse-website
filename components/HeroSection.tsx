@@ -245,8 +245,10 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/services"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-medium uppercase tracking-widest border transition-colors duration-100 hover:bg-[var(--text)] hover:text-[var(--bg)]"
+              className="group inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-medium uppercase tracking-widest border transition-colors duration-100"
               style={{ borderColor: "var(--text)", color: "var(--text)" }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "var(--text)"; (e.currentTarget as HTMLElement).style.color = "var(--bg)"; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = ""; (e.currentTarget as HTMLElement).style.color = "var(--text)"; }}
             >
               {hero.secondaryCtaLabel}
             </Link>
