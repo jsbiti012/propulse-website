@@ -45,7 +45,7 @@ export default function Navbar() {
             style={{ filter: dark ? "brightness(0) invert(1)" : "brightness(0)" }}
           />
           <span
-            className="text-lg font-extrabold tracking-tight transition-colors duration-300"
+            className="text-sm font-extrabold tracking-tight transition-colors duration-300"
             style={{ color: fg, fontFamily: '"Open Sauce One", sans-serif' }}
           >
             {siteData.name}
