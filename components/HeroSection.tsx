@@ -47,9 +47,9 @@ function FloatingPaths({ position }: { position: number }) {
             d={path.d}
             stroke="currentColor"
             strokeWidth={path.width}
-            strokeOpacity={0.12 + path.id * 0.025}
-            initial={{ pathLength: 0.3, opacity: 0.6 }}
-            animate={{ pathLength: 1, opacity: [0.4, 0.75, 0.4], pathOffset: [0, 1, 0] }}
+            strokeOpacity={0.05 + path.id * 0.013}
+            initial={{ pathLength: 0.3, opacity: 0.5 }}
+            animate={{ pathLength: 1, opacity: [0.16, 0.32, 0.16], pathOffset: [0, 1, 0] }}
             transition={{
               duration: 20 + Math.random() * 10,
               repeat: Infinity,
@@ -104,17 +104,10 @@ export default function HeroSection() {
           ))}
         </h1>
 
-        {/* Decorative divider */}
-        <Reveal delay={0.5} className="flex items-center gap-3 mt-10">
-          <span className="block w-16 h-px" style={{ background: "var(--line)" }} />
-          <span className="block w-1.5 h-1.5" style={{ border: "1px solid var(--line)" }} />
-          <span className="block w-16 h-px" style={{ background: "var(--line)" }} />
-        </Reveal>
-
         {/* Sub copy */}
-        <Reveal delay={0.58}>
+        <Reveal delay={0.5}>
           <p
-            className="mt-8 max-w-xl text-base sm:text-lg leading-relaxed"
+            className="mt-10 max-w-xl text-base sm:text-lg leading-relaxed"
             style={{ color: "var(--muted)" }}
           >
             {hero.subCopyMain}{" "}
