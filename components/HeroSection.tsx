@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
@@ -63,7 +64,20 @@ function FloatingPaths({ position }: { position: number }) {
 }
 
 export default function HeroSection() {
-  const lines = [hero.headlineLine1, hero.headlineLine2, hero.headlineLine3];
+  // Rotating business types — sharp vertical slide-swap
+  const rotating = useMemo(
+    () => ["restaurant", "boutique", "salon", "café", "commerce"],
+    []
+  );
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setTimeout(
+      () => setWordIndex((n) => (n + 1) % rotating.length),
+      2200
+    );
+    return () => clearTimeout(id);
+  }, [wordIndex, rotating]);
 
   return (
     <section
@@ -88,20 +102,53 @@ export default function HeroSection() {
           </span>
         </Reveal>
 
-        {/* Headline */}
-        <h1 className="display mt-8 text-[2.8rem] sm:text-6xl lg:text-7xl xl:text-8xl">
-          {lines.map((line, i) => (
-            <motion.span
-              key={i}
-              className="block"
-              initial={{ opacity: 0, y: 28 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, delay: 0.12 + i * 0.12, ease }}
-              style={{ color: "var(--text)" }}
-            >
-              {line}
-            </motion.span>
-          ))}
+        {/* Headline — with rotating business type */}
+        <h1
+          className="display mt-8 text-[2.8rem] sm:text-6xl lg:text-7xl xl:text-8xl"
+          style={{ color: "var(--text)" }}
+        >
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.12, ease }}
+          >
+            Votre
+          </motion.span>
+
+          {/* Rotating word — own centered line, clipped slide */}
+          <span
+            className="relative block w-full text-center overflow-hidden leading-[1.1]"
+            aria-label="restaurant, boutique, salon, café, commerce"
+          >
+            <span className="invisible" aria-hidden>
+              restaurant
+            </span>
+            {rotating.map((word, i) => (
+              <motion.span
+                key={word}
+                className="absolute inset-x-0 text-center"
+                initial={{ opacity: 0, y: "100%" }}
+                animate={
+                  wordIndex === i
+                    ? { y: "0%", opacity: 1 }
+                    : { y: wordIndex > i ? "-120%" : "120%", opacity: 0 }
+                }
+                transition={{ type: "spring", stiffness: 70, damping: 14 }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </span>
+
+          <motion.span
+            className="block"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.85, delay: 0.36, ease }}
+          >
+            mérite un vrai site web.
+          </motion.span>
         </h1>
 
         {/* Sub copy */}
