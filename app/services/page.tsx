@@ -41,12 +41,11 @@ export default function ServicesPage() {
         </div>
         <div className="py-12 md:py-20">
           <StaggerGrid className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--border)]">
-            {packs.map((pack, idx) => {
+            {packs.map((pack) => {
               const dark = pack.featured;
               const fg = dark ? "#fff" : "var(--text)";
               const muted = dark ? "rgba(255,255,255,0.55)" : "var(--muted)";
               const hairline = dark ? "rgba(255,255,255,0.16)" : "var(--border)";
-              const n = String(idx + 1).padStart(2, "0");
               return (
                 <StaggerItem key={pack.name} className={dark ? "md:relative md:z-10" : ""}>
                   <div
@@ -66,15 +65,6 @@ export default function ServicesPage() {
                         </span>
                       </div>
                     )}
-
-                    {/* Oversized index numeral — editorial watermark */}
-                    <span
-                      aria-hidden
-                      className="display absolute top-9 right-5 pointer-events-none select-none leading-none"
-                      style={{ fontSize: "4.5rem", color: fg, opacity: dark ? 0.1 : 0.06 }}
-                    >
-                      {n}
-                    </span>
 
                     {/* Header zone */}
                     <div className="relative z-[1]">
