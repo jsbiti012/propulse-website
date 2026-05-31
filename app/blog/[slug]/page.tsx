@@ -18,7 +18,6 @@ export async function generateMetadata({
   const post = getPost(slug);
   if (!post) return {};
   return {
-    title: `${post.title} — Propulse Blog`,
     description: post.description,
   };
 }

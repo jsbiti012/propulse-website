@@ -7,7 +7,6 @@ import homeData from "@/content/pages/home.json";
 const PROCESS_ICONS = [Phone, Presentation, Code2, Globe];
 
 export const metadata = {
-  title: servicesData.meta.title,
   description: servicesData.meta.description,
 };
 

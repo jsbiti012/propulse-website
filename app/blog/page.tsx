@@ -5,7 +5,6 @@ import { FadeUp, StaggerGrid, StaggerItem, DrawRule, MaskReveal } from "@/compon
 import { blogPage } from "@/content.config";
 
 export const metadata = {
-  title: blogPage.metadata.title,
   description: blogPage.metadata.description,
 };
 
