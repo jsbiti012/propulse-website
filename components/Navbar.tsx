@@ -36,9 +36,9 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full transition-colors duration-300"
       style={{ background: bg, borderBottom: `1px solid ${hairline}` }}
     >
-      <div className="mx-auto max-w-6xl px-6 h-16 grid grid-cols-3 items-center">
+      <div className="mx-auto max-w-6xl px-6 h-16 flex items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-0 group">
+        <Link href="/" className="flex items-center gap-0 group shrink-0">
           <Logo
             size={44}
             className="transition-[filter] duration-300 group-hover:scale-105 -ml-[25px] -mr-[21px]"
@@ -52,8 +52,11 @@ export default function Navbar() {
           </span>
         </Link>
 
+        {/* Equal spacer */}
+        <div className="hidden md:block flex-1" />
+
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center justify-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 shrink-0">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
@@ -73,28 +76,27 @@ export default function Navbar() {
           })}
         </nav>
 
+        {/* Equal spacer */}
+        <div className="hidden md:block flex-1" />
+
         {/* CTA — inverts with the bar */}
-        <div className="hidden md:flex justify-end">
-          <Link
-            href={navCta.href}
-            className="inline-flex items-center px-5 py-2.5 text-xs font-medium uppercase tracking-widest border transition-colors duration-300"
-            style={{ background: fg, color: bg, borderColor: fg }}
-          >
-            {navCta.label}
-          </Link>
-        </div>
+        <Link
+          href={navCta.href}
+          className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium uppercase tracking-widest border transition-colors duration-300 shrink-0"
+          style={{ background: fg, color: bg, borderColor: fg }}
+        >
+          {navCta.label}
+        </Link>
 
         {/* Mobile hamburger */}
-        <div className="md:hidden flex justify-end col-start-3">
         <button
           onClick={() => setOpen(!open)}
-          className="p-2 transition-colors duration-300"
+          className="md:hidden ml-auto p-2 transition-colors duration-300"
           style={{ color: fg }}
           aria-label="Menu"
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
-        </div>
       </div>
 
       {/* Mobile menu */}
