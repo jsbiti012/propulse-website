@@ -41,7 +41,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-0 group">
           <Logo
             size={44}
-            className="transition-[filter] duration-300 group-hover:scale-105 -ml-[25px] -mr-[21px]"
+            className="transition-[filter] duration-300 group-hover:scale-105 -mr-[21px]"
             style={{ filter: dark ? "brightness(0) invert(1)" : "brightness(0)" }}
           />
           <span
