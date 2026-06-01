@@ -36,7 +36,7 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full transition-colors duration-300"
       style={{ background: bg, borderBottom: `1px solid ${hairline}` }}
     >
-      <div className="mx-auto max-w-6xl px-6 h-16 flex items-center">
+      <div className="mx-auto max-w-6xl px-6 h-16 relative flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-0 group shrink-0">
           <Logo
@@ -52,11 +52,8 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Equal spacer */}
-        <div className="hidden md:block flex-1" />
-
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8 shrink-0">
+        {/* Desktop nav — absolutely centered on the page */}
+        <nav className="hidden md:flex items-center gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
@@ -75,9 +72,6 @@ export default function Navbar() {
             );
           })}
         </nav>
-
-        {/* Equal spacer */}
-        <div className="hidden md:block flex-1" />
 
         {/* CTA — inverts with the bar */}
         <Link
