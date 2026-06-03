@@ -87,7 +87,7 @@ export default function ServicesPage() {
                       {pack.monthly && (
                         <p className="mt-4 text-sm" style={{ color: fg }}>
                           <span className="font-bold text-lg">{pack.monthly} DH</span>
-                          <span style={{ color: muted }}> /mois — {pack.monthlyNote}</span>
+                          <span style={{ color: muted }}> /mois · {pack.monthlyNote}</span>
                         </p>
                       )}
                     </div>

@@ -181,7 +181,7 @@ export const servicesPage = {
     headline: "Une formule pour",
     headlineGradient: "chaque besoin.",
     subCopy:
-      "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité — on s'occupe du reste.",
+      "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité, on s'occupe du reste.",
   },
   pricingNote:
     "Tous les prix sont en MAD, TVA non incluse. Un devis personnalisé est disponible sur demande.",
@@ -214,7 +214,7 @@ export const servicesPage = {
         step: "04",
         icon: Globe,
         title: "Vous êtes en ligne",
-        desc: "Votre site est mis en ligne. Hébergement, domaine, configuration — on s'en charge.",
+        desc: "Votre site est mis en ligne. Hébergement, domaine, configuration : on s'en charge.",
       },
     ] as ProcessStep[],
   },
@@ -225,9 +225,9 @@ export const servicesPage = {
     ctaLabel: "Contactez-nous",
   },
   metadata: {
-    title: "Nos formules — Propulse",
+    title: "Nos formules · Propulse",
     description:
-      "Découvrez nos 3 formules pour les PME marocaines : Site Web Essentiel, Site + Agent WhatsApp, Automatisation Business.",
+      "Découvrez nos 3 formules pour les PME marocaines : Pack Visibilité Locale, Site Standard, Site Signature.",
   },
 };
 
@@ -245,9 +245,9 @@ export const contactPage = {
   },
   formPackOptions: [
     { value: "", label: "Choisir une formule…" },
-    { value: "essentiel", label: "Site Web Essentiel — 5 900 DH" },
-    { value: "whatsapp", label: "Site + Agent WhatsApp — 7 900 DH" },
-    { value: "business", label: "Automatisation Business — 9 900 DH" },
+    { value: "visibilite", label: "Pack Visibilité Locale · 1 200 DH" },
+    { value: "standard", label: "Site Web Standard · 5 900 DH" },
+    { value: "signature", label: "Site Web Signature · 9 900 DH" },
     { value: "autre", label: "Autre / Je ne sais pas encore" },
   ],
   nextSteps: [
@@ -280,7 +280,7 @@ export const blogPage = {
     ctaLabel: "Contactez-nous",
   },
   metadata: {
-    title: "Blog — Propulse",
+    title: "Blog · Propulse",
     description:
       "Conseils pratiques pour les PME marocaines : site web, référencement, présence en ligne.",
   },
@@ -302,10 +302,10 @@ export const blogPostCta = {
 // ─────────────────────────────────────────────
 
 export const siteMetadata = {
-  title: "Propulse — Agence Web au Maroc",
+  title: "Propulse · Agence Web au Maroc",
   description:
     "Propulse crée des sites web professionnels pour les PME marocaines. Rapide, abordable, sans prise de tête.",
-  ogTitle: "Propulse — Agence Web au Maroc",
+  ogTitle: "Propulse · Agence Web au Maroc",
   ogDescription:
     "Sites web professionnels pour les PME marocaines. Rapide, abordable, sans prise de tête.",
   locale: "fr_MA",
