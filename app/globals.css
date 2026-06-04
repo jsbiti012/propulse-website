@@ -157,6 +157,17 @@ body {
   border: 1px solid var(--line);
 }
 
+/* Blog row: title underline draws in on row hover (restrained, editorial — no block invert) */
+.blog-row-title {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 0.04em;
+}
+.blog-row:hover .blog-row-title { background-size: 100% 1px; }
+
 /* Link underline-on-hover for editorial nav/meta links */
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);

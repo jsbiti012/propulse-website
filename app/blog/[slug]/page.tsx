@@ -39,6 +39,8 @@ export default async function PostPage({
   const post = getPost(slug);
   if (!post) notFound();
 
+  const num = String(getAllPosts().findIndex((p) => p.slug === slug) + 1).padStart(2, "0");
+
   return (
     <>
       {/* Header */}
@@ -51,6 +53,13 @@ export default async function PostPage({
           <ArrowLeft size={13} />
           Retour au blog
         </Link>
+
+        <div className="flex items-baseline gap-5 mb-8">
+          <span className="font-light tabular-nums leading-none tracking-tight text-4xl md:text-5xl" style={{ color: "var(--muted)" }}>
+            {num}
+          </span>
+          <span className="rule flex-1 self-center" style={{ borderColor: "var(--border)" }} />
+        </div>
 
         <div className="flex flex-wrap items-center gap-4 mb-8">
           <span className="mono-label px-2 py-1 border" style={{ borderColor: "var(--line)", color: "var(--text)" }}>

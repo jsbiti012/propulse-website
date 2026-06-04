@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/mdx";
-import { ArrowRight, Clock } from "lucide-react";
-import { FadeUp, StaggerGrid, StaggerItem, DrawRule, MaskReveal } from "@/components/Animate";
+import { ArrowRight } from "lucide-react";
+import { FadeUp, StaggerGrid, StaggerItem, MaskReveal } from "@/components/Animate";
 import { blogPage } from "@/content.config";
 
 export const metadata = {
@@ -35,47 +35,69 @@ export default function BlogPage() {
 
       {/* Posts */}
       <section className="mx-auto max-w-6xl px-6">
-        <div>
-          <DrawRule />
-          <div className="pt-4 flex items-center justify-between">
-            <span className="mono-label" style={{ color: "var(--text)" }}>Journal</span>
-            <span className="mono-label" style={{ color: "var(--muted)" }}>
-              {posts.length} article{posts.length > 1 ? "s" : ""}
-            </span>
-          </div>
+        <div
+          className="flex items-center justify-between pb-4 border-b"
+          style={{ borderColor: "var(--border)" }}
+        >
+          <span className="mono-label" style={{ color: "var(--text)" }}>Journal</span>
+          <span className="mono-label" style={{ color: "var(--muted)" }}>
+            {posts.length} article{posts.length > 1 ? "s" : ""}
+          </span>
         </div>
 
-        <div className="py-12 md:py-20">
+        <div className="pb-12 md:pb-20">
           {posts.length === 0 ? (
             <FadeUp className="py-20">
               <p className="display text-3xl mb-2" style={{ color: "var(--text)" }}>{emptyState.title}</p>
               <p className="text-sm" style={{ color: "var(--muted)" }}>{emptyState.subtitle}</p>
             </FadeUp>
           ) : (
-            <StaggerGrid className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)]">
-              {posts.map((post) => (
-                <StaggerItem key={post.slug}>
-                  <Link href={`/blog/${post.slug}`} className="invert-card group h-full flex flex-col gap-5 p-8">
-                    <div className="flex items-center justify-between">
-                      <span className="mono-label">{post.category}</span>
-                      <span className="mono-label dim">{formatDate(post.date)}</span>
-                    </div>
-                    <h2 className="display text-2xl leading-tight flex-1">{post.title}</h2>
-                    <p className="text-sm leading-relaxed dim line-clamp-3">{post.description}</p>
-                    <div className="flex items-center justify-between pt-5 border-t" style={{ borderColor: "currentColor" }}>
-                      {post.readTime && (
-                        <span className="mono-label dim flex items-center gap-1.5">
-                          <Clock size={12} strokeWidth={1.5} />
-                          {post.readTime}
-                        </span>
-                      )}
-                      <span className="mono-label flex items-center gap-1.5">
-                        Lire <ArrowRight size={13} className="transition-transform group-hover:translate-x-1" />
+            <StaggerGrid className="flex flex-col divide-y divide-[var(--border)]">
+              {posts.map((post, i) => {
+                const num = String(i + 1).padStart(2, "0");
+                return (
+                  <StaggerItem key={post.slug}>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="blog-row group grid grid-cols-[auto_1fr_auto] items-center gap-x-5 md:gap-x-10 py-6"
+                    >
+                      {/* Index numeral — quiet position marker */}
+                      <span
+                        className="font-light tabular-nums leading-none text-xl md:text-2xl"
+                        style={{ color: "#BDBDBD" }}
+                      >
+                        {num}
                       </span>
-                    </div>
-                  </Link>
-                </StaggerItem>
-              ))}
+
+                      {/* Category + title */}
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="mono-label" style={{ color: "var(--text)" }}>{post.category}</span>
+                          {post.readTime && (
+                            <span className="mono-label" style={{ color: "var(--muted)" }}>· {post.readTime}</span>
+                          )}
+                        </div>
+                        <h2 className="display text-xl md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
+                          <span className="blog-row-title">{post.title}</span>
+                        </h2>
+                      </div>
+
+                      {/* Date + arrow */}
+                      <div className="flex items-center gap-4 md:gap-6">
+                        <span className="mono-label hidden md:inline" style={{ color: "var(--muted)" }}>
+                          {formatDate(post.date)}
+                        </span>
+                        <ArrowRight
+                          size={16}
+                          strokeWidth={1.5}
+                          className="transition-transform group-hover:translate-x-1"
+                          style={{ color: "var(--text)" }}
+                        />
+                      </div>
+                    </Link>
+                  </StaggerItem>
+                );
+              })}
             </StaggerGrid>
           )}
         </div>
