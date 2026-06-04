@@ -76,9 +76,9 @@ export default function BlogPage() {
                           {post.readTime && (
                             <span className="mono-label" style={{ color: "var(--muted)" }}>· {post.readTime}</span>
                           )}
-                          {/* Date shown here on mobile only (right rail handles it on desktop) */}
-                          <span className="mono-label md:hidden basis-full" style={{ color: "var(--muted)" }}>
-                            {formatDate(post.date)}
+                          {/* Date shown inline on mobile only (right rail handles it on desktop) */}
+                          <span className="mono-label md:hidden" style={{ color: "var(--muted)" }}>
+                            · {formatDate(post.date)}
                           </span>
                         </div>
                         <h2 className="display text-xl md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
