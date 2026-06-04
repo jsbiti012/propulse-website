@@ -166,7 +166,10 @@ body {
   transition: background-size 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   padding-bottom: 0.04em;
 }
-.blog-row:hover .blog-row-title { background-size: 100% 1px; }
+/* Only on pointer/hover devices — avoids a stuck underline after tap on mobile */
+@media (hover: hover) {
+  .blog-row:hover .blog-row-title { background-size: 100% 1px; }
+}
 
 /* Link underline-on-hover for editorial nav/meta links */
 .link-underline {

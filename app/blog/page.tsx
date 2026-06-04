@@ -71,11 +71,15 @@ export default function BlogPage() {
 
                       {/* Category + title */}
                       <div className="min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-2">
                           <span className="mono-label" style={{ color: "var(--text)" }}>{post.category}</span>
                           {post.readTime && (
                             <span className="mono-label" style={{ color: "var(--muted)" }}>· {post.readTime}</span>
                           )}
+                          {/* Date shown here on mobile only (right rail handles it on desktop) */}
+                          <span className="mono-label md:hidden basis-full" style={{ color: "var(--muted)" }}>
+                            {formatDate(post.date)}
+                          </span>
                         </div>
                         <h2 className="display text-xl md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
                           <span className="blog-row-title">{post.title}</span>
