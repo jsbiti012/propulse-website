@@ -167,7 +167,7 @@ export default function HeroSection() {
             className="mono-label inline-flex items-center gap-2 px-3 py-2 border"
             style={{ borderColor: "var(--line)", color: "var(--text)" }}
           >
-            <span className="w-1.5 h-1.5" style={{ background: "var(--text)" }} />
+            <span className="w-1 h-1" style={{ background: "var(--muted)" }} />
             {hero.badge}
           </span>
         </Reveal>
