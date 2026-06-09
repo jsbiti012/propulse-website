@@ -116,7 +116,7 @@ export default function Home() {
         </FadeUp>
         <div className="py-12 md:py-20">
           <h2 className="display text-4xl md:text-6xl max-w-3xl" style={{ color: "var(--text)" }}>
-            <MaskReveal>Un partenaire local qui comprend vos besoins.</MaskReveal>
+            <MaskReveal>Un partenaire local qui comprend vos besoins</MaskReveal>
           </h2>
 
           <StaggerGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px mt-14 bg-[var(--border)]">
@@ -153,7 +153,7 @@ export default function Home() {
         <div className="py-12 md:py-20">
           <FadeUp className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <h2 className="display text-4xl md:text-6xl max-w-2xl" style={{ color: "var(--text)" }}>
-              <MaskReveal>Une formule pour chaque besoin.</MaskReveal>
+              <MaskReveal>Une formule pour chaque besoin</MaskReveal>
             </h2>
             <Link
               href="/services"

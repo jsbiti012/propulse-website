@@ -2,14 +2,14 @@
   "hero": {
     "label": "Nos formules",
     "headline": "Une formule pour",
-    "headlineGradient": "chaque besoin.",
+    "headlineGradient": "chaque besoin",
     "subCopy": "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité, on s'occupe du reste."
   },
   "pricingNote": "Tous les prix sont en MAD, TVA non incluse. Un devis personnalisé est disponible sur demande",
   "process": {
     "label": "Notre processus",
     "headline": "Simple",
-    "headlineGradient": "de A à Z.",
+    "headlineGradient": "de A à Z",
     "subCopy": "De la prise de contact à la mise en ligne, on vous accompagne à chaque étape.",
     "steps": [
       {

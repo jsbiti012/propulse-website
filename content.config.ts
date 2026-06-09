@@ -80,7 +80,7 @@ export const hero = {
   headlineLines: [
     { words: ["Votre", "entreprise"], gradient: false },
     { words: ["mérite", "d'être"], gradient: true },
-    { words: ["trouvée", "en ligne."], gradient: false },
+    { words: ["trouvée", "en ligne"], gradient: false },
   ],
   subCopyMain:
     "Propulse crée des sites web professionnels pour les PME marocaines.",
@@ -179,7 +179,7 @@ export const servicesPage = {
   hero: {
     label: "Nos formules",
     headline: "Une formule pour",
-    headlineGradient: "chaque besoin.",
+    headlineGradient: "chaque besoin",
     subCopy:
       "Pas de jargon, pas de mauvaises surprises. Choisissez la formule qui correspond à votre activité, on s'occupe du reste.",
   },
@@ -188,7 +188,7 @@ export const servicesPage = {
   process: {
     label: "Notre processus",
     headline: "Simple",
-    headlineGradient: "de A à Z.",
+    headlineGradient: "de A à Z",
     subCopy:
       "De la prise de contact à la mise en ligne, on vous accompagne à chaque étape.",
     steps: [
@@ -239,7 +239,7 @@ export const contactPage = {
   hero: {
     label: "Contact",
     headline: "Parlons de",
-    headlineGradient: "votre projet.",
+    headlineGradient: "votre projet",
     subCopy:
       "Remplissez le formulaire ci-dessous et on vous recontacte sous 24h. Pas d'engagement, juste une conversation.",
   },
@@ -266,7 +266,7 @@ export const blogPage = {
   hero: {
     label: "Blog",
     headline: "Conseils pour votre",
-    headlineGradient: "présence en ligne.",
+    headlineGradient: "présence en ligne",
     subCopy:
       "Des articles pratiques pour aider les entreprises marocaines à exister sur le web et attirer plus de clients.",
   },
