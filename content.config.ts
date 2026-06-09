@@ -76,7 +76,7 @@ export const navCta = { href: "/contact", label: "Démarrer un projet" };
 // ─────────────────────────────────────────────
 
 export const hero = {
-  badge: "Agence Web · Maroc",
+  badge: "Conçu pour être trouvé",
   headlineLines: [
     { words: ["Votre", "entreprise"], gradient: false },
     { words: ["mérite", "d'être"], gradient: true },
