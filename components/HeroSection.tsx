@@ -215,7 +215,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.3, ease }}
           >
-            mérite un vrai site web
+            mérite un vrai site
+            <br />
+            web
           </motion.span>
         </h1>
 
