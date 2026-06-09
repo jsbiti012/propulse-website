@@ -161,20 +161,9 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-5xl mx-auto text-center flex flex-col items-center">
-        {/* Eyebrow chip */}
-        <Reveal>
-          <span
-            className="mono-label inline-flex items-center gap-2 px-3 py-2 border"
-            style={{ borderColor: "var(--line)", color: "var(--text)" }}
-          >
-            <span className="w-1 h-1" style={{ background: "var(--text)" }} />
-            {hero.badge}
-          </span>
-        </Reveal>
-
         {/* Headline — with rotating business type */}
         <h1
-          className="display mt-8 text-[clamp(2.125rem,10vw,3rem)] sm:text-6xl lg:text-7xl xl:text-8xl"
+          className="display text-[clamp(2.125rem,10vw,3rem)] sm:text-6xl lg:text-7xl xl:text-8xl"
           style={{ color: "var(--text)" }}
         >
           {/* Line 1: "Votre [rotating word]" on one line */}
