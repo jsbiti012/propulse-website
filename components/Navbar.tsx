@@ -39,10 +39,10 @@ export default function Navbar() {
       <div className="mx-auto max-w-6xl px-6 h-16 flex items-center">
         {/* Left side — equal width, logo flush left */}
         <div className="flex-1 basis-0 flex items-center justify-start">
-          <Link href="/" className="flex items-center gap-0 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <Logo
-              size={44}
-              className="transition-[filter] duration-300 group-hover:scale-105 -ml-[25px] -mr-[21px]"
+              size={26}
+              className="transition-[filter] duration-300 group-hover:scale-105"
               style={{ filter: dark ? "brightness(0) invert(1)" : "brightness(0)" }}
             />
             <span

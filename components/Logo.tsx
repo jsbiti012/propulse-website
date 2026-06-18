@@ -12,10 +12,10 @@ export default function Logo({
 }) {
   return (
     <Image
-      src="/logo_white_transparent.png"
+      src="/logomark.png"
       alt="Propulse"
       height={size}
-      width={size * 5}
+      width={size}
       className={className}
       style={{ height: size, width: "auto", ...style }}
     />
