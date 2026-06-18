@@ -15,7 +15,7 @@ export default function Footer() {
           {/* ── Brand column ── */}
           <div className="max-w-xs">
             <div className="flex items-center gap-0 mb-4">
-              <Logo size={44} className="-mr-2" style={{ filter: "brightness(0)" }} />
+              <Logo size={44} className="-mr-[20px]" style={{ filter: "brightness(0)" }} />
               <span className="text-lg font-extrabold tracking-tight">{siteData.name}</span>
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
