@@ -9,12 +9,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev       # TinaCMS dev server + Next.js (localhost:3000, TinaCloud UI at /admin)
-npm run build     # tinacms build + next build
+npm run dev       # Next.js dev server (localhost:3000)
+npm run build     # next build
 npm run lint      # ESLint
 ```
-
-The dev command starts both TinaCMS and Next.js together. You cannot run them independently — always use `npm run dev`.
 
 ---
 
@@ -22,23 +20,23 @@ The dev command starts both TinaCMS and Next.js together. You cannot run them in
 
 ### Stack
 - **Next.js 16** (App Router), **React 19**, **TypeScript**, **Tailwind CSS v4**
-- **TinaCMS** for CMS-editable content (text, prices, copy) — configured in `tina/config.ts`
 - **Resend** for contact form emails (`app/api/contact/route.ts`)
 - **next-mdx-remote** + **gray-matter** for blog post rendering
 
 ### Content system — two layers
 
-**Layer 1: TinaCMS JSON** (`content/pages/*.json`)
-- Holds text-only, CMS-editable fields: headlines, descriptions, CTA labels, pack names/prices, form options.
+Content is edited directly in the source files (no CMS). To change site copy, edit the files below and push; Vercel redeploys.
+
+**Layer 1: page JSON** (`content/pages/*.json`)
+- Holds text-only fields: headlines, descriptions, CTA labels, pack names/prices, form options.
 - Pages import these directly: `import homeData from "@/content/pages/home.json"`.
-- Edit these files or through the `/admin` TinaCMS UI.
 
 **Layer 2: `content.config.ts`** (repo root)
 - Holds everything that can't go in JSON: Lucide icon references, typed interfaces, social links.
 - Imported by `components/Navbar.tsx`, `components/Footer.tsx`, and blog pages.
 - Icons are **not** in the JSON — pages zip icon arrays with JSON data at render time (see `app/page.tsx` pattern with `STAT_ICONS`, `STEP_ICONS`, etc.).
 
-**Blog posts** live in `content/blog/*.mdx`. The `lib/mdx.ts` utility reads them with `gray-matter`. Required frontmatter: `title`, `description`, `date`, `category`. TinaCMS schema in `tina/config.ts` manages these too.
+**Blog posts** live in `content/blog/*.mdx`. The `lib/mdx.ts` utility reads them with `gray-matter`. Required frontmatter: `title`, `description`, `date`, `category`.
 
 ### Pages
 | Route | File | Content source |
@@ -61,9 +59,6 @@ Use these via `style={{ color: "var(--accent)" }}` — do not hardcode hex value
 ### Environment variables
 ```
 RESEND_API_KEY         # contact form email delivery
-NEXT_PUBLIC_TINA_CLIENT_ID
-TINA_TOKEN
-GITHUB_BRANCH          # defaults to "main"
 ```
 
 ### Key rules
