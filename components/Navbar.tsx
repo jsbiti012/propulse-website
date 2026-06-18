@@ -36,26 +36,24 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full transition-colors duration-300"
       style={{ background: bg, borderBottom: `1px solid ${hairline}` }}
     >
-      <div className="mx-auto max-w-6xl px-6 h-16 flex items-center">
-        {/* Left side — equal width, logo flush left */}
-        <div className="flex-1 basis-0 flex items-center justify-start">
-          <Link href="/" className="flex items-center gap-2 group">
-            <Logo
-              size={26}
-              className="transition-[filter] duration-300 group-hover:scale-105"
-              style={{ filter: dark ? "brightness(0) invert(1)" : "brightness(0)" }}
-            />
-            <span
-              className="text-sm font-extrabold tracking-tight transition-colors duration-300"
-              style={{ color: fg, fontFamily: '"Open Sauce One", sans-serif' }}
-            >
-              {siteData.name}
-            </span>
-          </Link>
-        </div>
+      <div className="mx-auto max-w-6xl px-6 h-16 flex items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-0 group">
+          <Logo
+            size={44}
+            className="transition-[filter] duration-300 group-hover:scale-105 -mr-2"
+            style={{ filter: dark ? "brightness(0) invert(1)" : "brightness(0)" }}
+          />
+          <span
+            className="text-sm font-extrabold tracking-tight transition-colors duration-300"
+            style={{ color: fg, fontFamily: '"Open Sauce One", sans-serif' }}
+          >
+            {siteData.name}
+          </span>
+        </Link>
 
-        {/* Desktop nav — centered between the two equal-width sides */}
-        <nav className="hidden md:flex items-center gap-8 shrink-0">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-8">
           {navLinks.map(({ href, label }) => {
             const active = pathname === href;
             return (
@@ -75,27 +73,24 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right side — equal width, CTA flush right */}
-        <div className="flex-1 basis-0 flex items-center justify-end">
-          {/* CTA — inverts with the bar */}
-          <Link
-            href={navCta.href}
-            className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium uppercase tracking-widest border transition-colors duration-300"
-            style={{ background: fg, color: bg, borderColor: fg }}
-          >
-            {navCta.label}
-          </Link>
+        {/* CTA — inverts with the bar */}
+        <Link
+          href={navCta.href}
+          className="hidden md:inline-flex items-center px-5 py-2.5 text-xs font-medium uppercase tracking-widest border transition-colors duration-300"
+          style={{ background: fg, color: bg, borderColor: fg }}
+        >
+          {navCta.label}
+        </Link>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-2 transition-colors duration-300"
-            style={{ color: fg }}
-            aria-label="Menu"
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="md:hidden p-2 transition-colors duration-300"
+          style={{ color: fg }}
+          aria-label="Menu"
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
       </div>
 
       {/* Mobile menu */}
