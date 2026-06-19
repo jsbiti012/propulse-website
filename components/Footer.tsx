@@ -16,7 +16,7 @@ export default function Footer() {
           <div className="max-w-xs">
             <div className="flex items-center gap-0 mb-4">
               <Logo size={44} className="-mr-[20px]" style={{ filter: "brightness(0)" }} />
-              <span className="text-lg font-extrabold tracking-tight">{siteData.name}</span>
+              <span className="text-lg font-extrabold tracking-tight" style={{ fontFamily: '"Open Sauce One", sans-serif' }}>{siteData.name}</span>
             </div>
             <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--muted)" }}>
               {siteData.tagline}
