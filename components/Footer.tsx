@@ -51,6 +51,13 @@ export default function Footer() {
                   {label}
                 </Link>
               ))}
+              <Link
+                href="/confidentialite"
+                className="link-underline text-sm font-medium w-fit"
+                style={{ color: "var(--text)" }}
+              >
+                Confidentialité
+              </Link>
             </div>
 
             <div className="flex flex-col gap-4">
